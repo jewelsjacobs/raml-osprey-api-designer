@@ -10,6 +10,9 @@ The service is built with node.js, using express and mongodb.
 ### Installing Node.js
 Go to [nodejs.org](http://nodejs.org), and click the Install button.
 
+### Installing Node.js via package manager (Debian, Ubuntu, etc.)
+View instructions [here](https://github.com/joyent/node/wiki/Installing-Node.js-via-package-manager).
+
 ### Installing MongoDB
 To install MongoDB on your specific platform, refer to the [MongoDB QuickStart](http://docs.mongodb.org/manual/installation/).
 
@@ -43,7 +46,7 @@ $ curl -i -X POST -H 'Content-Type: application/json' -d
 http://localhost:3000/files
 ```
 
-`curl -i -X GET http://localhost:3000/files`
+`$ curl -i -X GET http://localhost:3000/files`
 
 ## Hosted @Rackspace
 
