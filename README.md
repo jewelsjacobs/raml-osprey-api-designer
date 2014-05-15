@@ -30,13 +30,13 @@ From the top-level directory (e.g. raml-store):
 ## Running the Service
 From the top-level directory (e.g. raml-store):
 
-`node server`
+`node server.js`
 
 If you prefer to run the server in the background [forever](http://blog.nodejitsu.com/keep-a-nodejs-server-up-with-forever) is awesome. 
 
 `npm install forever`
 
-`forever start server`
+`forever start server.js`
 
 ## Testing the Service
 
