@@ -37,9 +37,11 @@ If you prefer to run the server in the background [forever](http://blog.nodejits
 
 ## Testing the Service
 
-`curl -i -X POST -H 'Content-Type: application/json' -d 
+```
+$ curl -i -X POST -H 'Content-Type: application/json' -d 
 '{"name":"myfirstapi.raml","path":"/","contents":"#%25RAML%200.8%0Atitle:%20%20%20DONE!!!"}' 
-http://localhost:3000/files`
+http://localhost:3000/files
+```
 
 `curl -i -X GET http://localhost:3000/files`
 
