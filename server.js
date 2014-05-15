@@ -6,6 +6,7 @@ routes = require('./routes/');
 var app = express();
 
 app.configure(function(){
+  app.set('port', process.env.PORT || 3000);
   app.use(express.logger('dev'));
   app.use(express.methodOverride());
   app.use(express.bodyParser());
