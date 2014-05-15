@@ -50,4 +50,4 @@ http://localhost:3000/files
 
 ## Hosted @Rackspace
 
-You can see the app here: http://10.14.213.164:3000
+You can see the app here: http://10.14.213.164
