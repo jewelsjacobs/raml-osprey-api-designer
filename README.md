@@ -41,5 +41,6 @@ If you prefer to run the server in the background [forever](http://blog.nodejits
 
 `curl -i -X GET http://localhost:3000/files`
 
-## Acknowledgements
-Thanks to Christophe Coenraets, this API is based on his simple and easy-to-follow tutorial at http://coenraets.org/blog/2012/10/creating-a-rest-api-using-node-js-express-and-mongodb/
+## Hosted @Rackspace
+
+You can see the app here: http://10.14.213.164:3000
