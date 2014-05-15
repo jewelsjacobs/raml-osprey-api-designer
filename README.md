@@ -1,8 +1,8 @@
-# RAML Store
+# RAML
 
 ## Overview
 
-raml-store provides a simple storage API plus a persistence plugin which enables you to run the [RAML API Designer](https://github.com/mulesoft/api-designer) locally (rather than use the APIHub cloud service) and still be able to manage and collaborate on your design.
+This application provides a simple storage API plus a persistence plugin which enables you to run the [RAML API Designer](https://github.com/mulesoft/api-designer) locally (rather than use the APIHub cloud service) and still be able to manage and collaborate on your design.
 
 ## Requirements
 The service is built with node.js, using express and mongodb.
@@ -40,9 +40,6 @@ If you prefer to run the server in the background [forever](http://blog.nodejits
 `curl -i -X POST -H 'Content-Type: application/json' -d '{"name":"myfirstapi.raml","path":"/","contents":"#%25RAML%200.8%0Atitle:%20%20%20DONE!!!"}' http://localhost:3000/files`
 
 `curl -i -X GET http://localhost:3000/files`
-
-## Integration with API-Designer
-The API Designer is integrated with the app in the /api-designer folder
 
 ## Acknowledgements
 Thanks to Christophe Coenraets, this API is based on his simple and easy-to-follow tutorial at http://coenraets.org/blog/2012/10/creating-a-rest-api-using-node-js-express-and-mongodb/
