@@ -22,6 +22,10 @@
 
 <script>
 angular.module('ramlEditorApp')
+    .run(function () { 
+      // Disable proxying HTTP requests 
+      RAML.Settings.proxy = false; 
+    })
     .factory('MyFileSystem', function ($http, $q) {
 
 //angular.module('fs')
