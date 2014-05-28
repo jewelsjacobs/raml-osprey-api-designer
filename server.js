@@ -1,9 +1,11 @@
 
 var express = require('express'),
 files = require('./routes/files'),
+path = require('path'),
+osprey = require('osprey'),
 routes = require('./routes/');
  
-var app = express();
+var app = module.exports = express();
 
 app.configure(function(){
   app.set('port', process.env.PORT || 3000);
@@ -51,12 +53,18 @@ var allowCrossDomain = function(req, res, next) {
 
 app.use(allowCrossDomain);
 
+api = osprey.create('/api', app, {
+  ramlFile: path.join(__dirname, '/api-designer/assets/lbs-api.raml'),
+  logLevel: 'debug'  //  logLevel: off->No logs | info->Show Osprey modules initializations | debug->Show all
+});
+
 app.get('/files', files.findAll);
 app.get('/files/:id', files.findById);
 app.post('/files', files.addFile);
 app.put('/files/:id', files.updateFile);
 app.delete('/files/:id', files.deleteFile);
+app.get('/files/name/:name', files.findContentByName);
 app.get('/', routes.index);
- 
+
 app.listen(app.get("port"));
 console.log('Listening on port 3000...');

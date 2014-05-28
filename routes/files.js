@@ -1,4 +1,6 @@
 var mongo = require('mongodb');
+var raml = require('raml-parser');
+var fs = require('fs');
 
 var Server = mongo.Server,
   Db = mongo.Db,
@@ -21,12 +23,32 @@ db.open(function (err, db) {
 
 exports.findById = function (req, res) {
   var id = req.params.id;
-  console.log('Retrieving file: ' + id);
+  if (id != 'undefined') {
+    console.log('Retrieving file: ' + id);
+    db.collection('files', function (err, collection) {
+      collection.findOne({'_id': new BSON.ObjectID(id)}, function (err, item) {
+        delete item._id;
+        res.header("Access-Control-Allow-Origin", "*");
+        res.send(item);
+      });
+    });
+  }
+};
+
+exports.findContentByName = function (req, res) {
+  var name = req.params.name;
+  console.log('Retrieving file contents: ' + name);
   db.collection('files', function (err, collection) {
-    collection.findOne({'_id': new BSON.ObjectID(id)}, function (err, item) {
+    collection.findOne({'name': name}, function (err, item) {
       delete item._id;
-      res.header("Access-Control-Allow-Origin", "*");
-      res.send(item);
+      console.log(decodeURIComponent(item.content));
+      if (err) {
+        console.log(err);
+        res.send(err);
+      } else {
+        res.header("Access-Control-Allow-Origin", "*");
+        res.send(decodeURIComponent(item.content))
+      }
     });
   });
 };
@@ -40,6 +62,14 @@ exports.findAll = function (req, res) {
           console.log('Item : ' + item._id + ' : ' + JSON.stringify(item));
           filelist[item._id] = item;
           delete filelist[item._id]._id;
+          console.log(item.name);
+          fs.writeFile('/var/www/raml/api-designer/assets/' + item.name, decodeURIComponent(item.content), function(err) {
+            if(err) {
+              console.log(err);
+            } else {
+              console.log("The file was saved!");
+            }
+          });
           console.log(JSON.stringify(filelist));
         }
         else {
