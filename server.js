@@ -57,7 +57,7 @@ var allowCrossDomain = function(req, res, next) {
 app.use(allowCrossDomain);
 
 api = osprey.create('/api', app, {
-  ramlFile: path.join(__dirname, '/api-designer/assets/lbs-api.raml'),
+  ramlFile: path.join(__dirname, '/api-designer/assets/api.raml'),
   logLevel: 'debug',  //  logLevel: off->No logs | info->Show Osprey modules initializations | debug->Show all
   enableMocks: true
 });
@@ -71,5 +71,5 @@ app.get('/files/name/:name', files.findContentByName);
 app.get('/', routes.index);
 
 app.listen(app.get("port"));
-mock.generateMock();
+
 console.log('Listening on port 3000...');
