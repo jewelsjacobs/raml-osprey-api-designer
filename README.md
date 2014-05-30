@@ -3,6 +3,7 @@
 ## Overview
 
 This application provides a simple storage API plus a persistence plugin which enables you to run the [RAML API Designer](https://github.com/mulesoft/api-designer) locally (rather than use the APIHub cloud service) and still be able to manage and collaborate on your design.
+Also using [osprey](https://github.com/mulesoft/osprey) to serve sample data defined in RAML definition.
 
 ## Requirements
 The service is built with node.js, using express and mongodb.
@@ -48,6 +49,7 @@ http://localhost:3000/files
 
 `$ curl -i -X GET http://localhost:3000/files`
 
-## Hosted @Rackspace
-
-You can see the app here: http://10.14.213.164
+## Coming soon
+ - Generating faker mock data from RAML with [json-schema-processor](https://www.npmjs.org/package/json-schema-processor)
+ - Decent docs
+ - Decent CRUD services for mock data
