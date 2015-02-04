@@ -53,3 +53,5 @@ http://localhost:3000/files
  - Generating faker mock data from RAML with [json-schema-processor](https://www.npmjs.org/package/json-schema-processor)
  - Decent docs
  - Decent CRUD services for mock data
+ 
+[![Support via Gratipay](https://cdn.rawgit.com/gratipay/gratipay-badge/2.3.0/dist/gratipay.png)](https://gratipay.com/jewelsjacobs/)
