@@ -70,10 +70,18 @@ Restart - `sudo service raml restart`
 ```
 $ curl -i -X POST -H 'Content-Type: application/json' -d 
 '{"name":"myfirstapi.raml","path":"/","contents":"#%25RAML%200.8%0Atitle:%20%20%20DONE!!!"}' 
-http://localhost:3000/files
+http://localhost:8081/files
 
-$ curl -i -X GET http://localhost:3000/files
+$ curl -i -X GET http://localhost:8081/files
 ```
+
+## Hacking the app
+
+This is a bit complicated because its kind of an ugly mashup of two existing apps [RAML API Designer](https://github.com/mulesoft/api-designer) and [osprey](https://github.com/mulesoft/osprey).
+
+You'll have to fork / hack those two apps individually and then build them separately and then mash them up again :(
+
+At some point I hope to make this an easier process.
 
 ## Coming soon
  - Generating faker mock data from RAML with [json-schema-processor](https://www.npmjs.org/package/json-schema-processor)
