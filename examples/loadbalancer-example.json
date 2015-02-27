@@ -1,0 +1,37 @@
+{
+  "load_balancer_data": {
+    "customer": 1550715,
+    "uptime": "92 Days, 21:9:3",
+    "links": {
+      "device": {
+        "href": "https://api-qual.netsec.rackspace.net/devices/433240",
+        "rel": "alternate"
+      },
+      "lb": {
+        "href": "https://api-qual.netsec.rackspace.net/loadbalancers",
+        "rel": "up"
+      },
+      "self": {
+        "href": "https://api-qual.netsec.rackspace.net/loadbalancers/433240",
+        "rel": "self"
+      },
+      "vips": {
+        "href": "https://api-qual.netsec.rackspace.net/loadbalancers/433240/vips",
+        "rel": "related"
+      },
+      "nodes": {
+        "href": "https://api-qual.netsec.rackspace.net/loadbalancers/433240/nodes",
+        "rel": "related"
+      }
+    },
+    "hostname": "433240-lbal1.kir.rackspace.co.uk",
+    "ram_mem": [],
+    "id": 433240,
+    "os_version": "10.2.1",
+    "management_ip": "10.9.216.151",
+    "role": "access",
+    "cpu_load": [],
+    "ha_status": "none",
+    "model_name": "Brocade ADX 1000 Series"
+  }
+}

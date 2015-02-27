@@ -1,0 +1,259 @@
+#%RAML 0.8
+baseUri: http://mocksvc.mulesoft.com/mocks/b7061a54-aabe-414f-960c-9a2ec89a654f
+title: Load Balancer Service API
+version: v1
+protocols: [ HTTP, HTTPS ]
+resourceTypes:
+  - loadbalancer:
+      get:
+        description: get single load balancer
+        responses:
+          200:
+            headers:
+              Access-Control-Allow-Origin:
+               example: |
+                *
+            body:
+              application/json:
+                schema: !include loadbalancer-schema.json
+                example: !include loadbalancer-example.json
+  - vips:
+      get:
+        description: get all vips
+        responses:
+          200:
+            headers:
+              Access-Control-Allow-Origin:
+                example: |
+                  *
+            body:
+              application/json:
+                schema: !include vips-schema.json
+                example: !include vips-example.json
+      post:
+        description: add a vip to vips
+        responses:
+          200:
+            headers:
+              Access-Control-Allow-Origin:
+                example: |
+                  *
+        body:
+          application/x-www-form-urlencoded:
+            formParameters:
+              label:
+                description: vip name
+                type: string
+                required: true
+                example: "Some Name"
+              port_number:
+                description: vip port
+                type: integer
+                required: true
+                example: 80
+              persistance:
+                description: persistance
+                type: string
+                required: true
+                example: "Source IP Based"
+              algorithm:
+                description: balance method
+                type: string
+                required: true
+                example: "round robin"
+              admin_state:
+                description: active or suspended
+                type: string
+                required: true
+                example: "active"
+              ipType:
+                description: type of ip
+                type: string
+                required: true
+                example: "automatic"
+  - vip:
+      get:
+        description: get single vip by name
+        responses:
+          200:
+            headers:
+              Access-Control-Allow-Origin:
+               example: |
+                *
+            body:
+              application/json:
+                example: !include vip-example.json
+      put:
+        description: update vip
+        headers:
+          Access-Control-Allow-Origin:
+            example: |
+              *
+        body:
+         application/x-www-form-urlencoded:
+          formParameters:
+            persistance:
+              description: persistance
+              type: string
+              required: false
+              example: "Source IP Based"
+            algorithm:
+              description: balance method
+              type: string
+              required: false
+              example: "round robin"
+      delete:
+        description: remove node from vip
+        responses:
+          200:
+            headers:
+              Access-Control-Allow-Origin:
+                example: |
+                  *
+            description: OK
+  - nodes:
+      get:
+        description: get all nodes from vip
+        responses:
+          200:
+            headers:
+              Access-Control-Allow-Origin:
+                example: |
+                  *
+            body:
+              application/json:
+                schema: !include nodes-schema.json
+                example: !include nodes-example.json
+      post:
+        description: add a node to nodes
+        headers:
+          Access-Control-Allow-Origin:
+            example: |
+              *
+        body:
+         application/x-www-form-urlencoded:
+          formParameters:
+            label:
+              description: node name
+              type: string
+              required: true
+              example: "Some Name"
+            address:
+              description: node ip
+              type: string
+              required: true
+              example: "192.168.1.6"
+            port_number:
+              description: node port
+              type: integer
+              required: true
+              example: 80
+            keepaliveMethod:
+              description: keep alive method
+              type: string
+              required: false
+              example: "GET"
+            keepaliveType:
+              description: keep alive type
+              type: string
+              required: false
+              example: "HTTP"
+            keepalivePort:
+              description: keep alive port
+              type: integer
+              required: false
+              example: 80
+            ratio:
+              description: weight / ratio
+              type: string
+              required: false
+              example: "not sure"
+            uri:
+              description: keep alive uri
+              type: string
+              required: false
+              example: "/keepalve.html"
+  - node:
+      get:
+        description: get node
+        responses:
+          200:
+            headers:
+              Access-Control-Allow-Origin:
+                example: |
+                  *
+            body:
+              application/json:
+                example: !include node-example.json
+      put:
+        description: add a node to nodes
+        headers:
+          Access-Control-Allow-Origin:
+            example: |
+              *
+        body:
+         application/x-www-form-urlencoded:
+          formParameters:
+            port_number:
+              description: node port
+              type: integer
+              required: true
+              example: 80
+            keepaliveMethod:
+              description: keep alive method
+              type: string
+              required: false
+              example: "GET"
+            keepaliveType:
+              description: keep alive type
+              type: string
+              required: false
+              example: "HTTP"
+            keepalivePort:
+              description: keep alive port
+              type: integer
+              required: false
+              example: 80
+            ratio:
+              description: weight / ratio
+              type: string
+              required: false
+              example: "not sure"
+            uri:
+              description: keep alive uri
+              type: string
+              required: false
+              example: "/keepalve.html"
+      delete:
+        description: remove node from vip
+        responses:
+          200:
+            headers:
+              Access-Control-Allow-Origin:
+                example: |
+                  *
+            description: OK
+/loadbalancers/device/{id}:
+  type: {loadbalancer}
+  description: load balancer by device number
+  displayName: deviceNumber
+  /vips:
+    type: {vips}
+    description: load balancer vips
+    displayName: vips
+    /{label}:
+      type: {vip}
+      description: single vip
+      displayName: name
+      /nodes:
+        type: {nodes}
+        description: all nodes from vip
+        displayName: nodes
+  /nodes:
+    type: {nodes}
+    description: all nodes from loadbalancer
+    displayName: nodes
+    /{label}:
+      type: {node}
+      description: single node
+      displayName: name

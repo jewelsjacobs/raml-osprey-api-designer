@@ -1,0 +1,429 @@
+{
+  "type": "object",
+  "$schema": "http://json-schema.org/draft-03/schema",
+  "id": "http://jsonschema.net",
+  "required": false,
+  "properties": {
+    "load_balancer_data": {
+      "type": "array",
+      "id": "http://jsonschema.net/load_balancer_data",
+      "required": false,
+      "items": {
+        "type": "object",
+        "id": "http://jsonschema.net/load_balancer_data/0",
+        "required": false,
+        "properties": {
+          "admin_state": {
+            "type": "string",
+            "id": "http://jsonschema.net/load_balancer_data/0/admin_state",
+            "required": false
+          },
+          "algorithm": {
+            "type": "string",
+            "id": "http://jsonschema.net/load_balancer_data/0/algorithm",
+            "required": false
+          },
+          "description": {
+            "type": "string",
+            "id": "http://jsonschema.net/load_balancer_data/0/description",
+            "required": false
+          },
+          "destination": {
+            "type": "string",
+            "id": "http://jsonschema.net/load_balancer_data/0/destination",
+            "required": false
+          },
+          "health_strategy": {
+            "type": "object",
+            "id": "http://jsonschema.net/load_balancer_data/0/health_strategy",
+            "required": false,
+            "properties": {
+              "enabled": {
+                "type": "string",
+                "id": "http://jsonschema.net/load_balancer_data/0/health_strategy/enabled",
+                "required": false
+              },
+              "ip": {
+                "type": "string",
+                "id": "http://jsonschema.net/load_balancer_data/0/health_strategy/ip",
+                "required": false
+              },
+              "port_number": {
+                "type": "string",
+                "id": "http://jsonschema.net/load_balancer_data/0/health_strategy/port_number",
+                "required": false
+              },
+              "uri": {
+                "type": "string",
+                "id": "http://jsonschema.net/load_balancer_data/0/health_strategy/uri",
+                "required": false
+              }
+            }
+          },
+          "id": {
+            "type": "string",
+            "id": "http://jsonschema.net/load_balancer_data/0/id",
+            "required": false
+          },
+          "label": {
+            "type": "string",
+            "id": "http://jsonschema.net/load_balancer_data/0/label",
+            "required": false
+          },
+          "links": {
+            "type": "object",
+            "id": "http://jsonschema.net/load_balancer_data/0/links",
+            "required": false,
+            "properties": {
+              "rel": {
+                "type": "object",
+                "id": "http://jsonschema.net/load_balancer_data/0/links/rel",
+                "required": false,
+                "properties": {
+                  "href": {
+                    "type": "string",
+                    "id": "http://jsonschema.net/load_balancer_data/0/links/rel/href",
+                    "required": false
+                  },
+                  "rel": {
+                    "type": "string",
+                    "id": "http://jsonschema.net/load_balancer_data/0/links/rel/rel",
+                    "required": false
+                  }
+                }
+              },
+              "self": {
+                "type": "object",
+                "id": "http://jsonschema.net/load_balancer_data/0/links/self",
+                "required": false,
+                "properties": {
+                  "href": {
+                    "type": "string",
+                    "id": "http://jsonschema.net/load_balancer_data/0/links/self/href",
+                    "required": false
+                  },
+                  "rel": {
+                    "type": "string",
+                    "id": "http://jsonschema.net/load_balancer_data/0/links/self/rel",
+                    "required": false
+                  }
+                }
+              }
+            }
+          },
+          "nodes": {
+            "type": "object",
+            "id": "http://jsonschema.net/load_balancer_data/0/nodes",
+            "required": false,
+            "properties": {
+              "items": {
+                "type": "array",
+                "id": "http://jsonschema.net/load_balancer_data/0/nodes/items",
+                "required": false,
+                "items": {
+                  "type": "object",
+                  "id": "http://jsonschema.net/load_balancer_data/0/nodes/items/0",
+                  "required": false,
+                  "properties": {
+                    "address": {
+                      "type": "string",
+                      "id": "http://jsonschema.net/load_balancer_data/0/nodes/items/0/address",
+                      "required": false
+                    },
+                    "admin_state": {
+                      "type": "string",
+                      "id": "http://jsonschema.net/load_balancer_data/0/nodes/items/0/admin_state",
+                      "required": false
+                    },
+                    "health_strategy": {
+                      "type": "object",
+                      "id": "http://jsonschema.net/load_balancer_data/0/nodes/items/0/health_strategy",
+                      "required": false,
+                      "properties": {
+                        "name": {
+                          "type": "string",
+                          "id": "http://jsonschema.net/load_balancer_data/0/nodes/items/0/health_strategy/name",
+                          "required": false
+                        },
+                        "params": {
+                          "type": "array",
+                          "id": "http://jsonschema.net/load_balancer_data/0/nodes/items/0/health_strategy/params",
+                          "required": false,
+                          "items": {
+                            "type": "object",
+                            "id": "http://jsonschema.net/load_balancer_data/0/nodes/items/0/health_strategy/params/0",
+                            "required": false,
+                            "properties": {
+                              "enabled": {
+                                "type": "boolean",
+                                "id": "http://jsonschema.net/load_balancer_data/0/nodes/items/0/health_strategy/params/0/enabled",
+                                "required": false
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "id": {
+                      "type": "string",
+                      "id": "http://jsonschema.net/load_balancer_data/0/nodes/items/0/id",
+                      "required": false
+                    },
+                    "label": {
+                      "type": "string",
+                      "id": "http://jsonschema.net/load_balancer_data/0/nodes/items/0/label",
+                      "required": false
+                    },
+                    "limit": {
+                      "type": "number",
+                      "id": "http://jsonschema.net/load_balancer_data/0/nodes/items/0/limit",
+                      "required": false
+                    },
+                    "links": {
+                      "type": "object",
+                      "id": "http://jsonschema.net/load_balancer_data/0/nodes/items/0/links",
+                      "required": false,
+                      "properties": {
+                        "rel": {
+                          "type": "object",
+                          "id": "http://jsonschema.net/load_balancer_data/0/nodes/items/0/links/rel",
+                          "required": false,
+                          "properties": {
+                            "href": {
+                              "type": "string",
+                              "id": "http://jsonschema.net/load_balancer_data/0/nodes/items/0/links/rel/href",
+                              "required": false
+                            },
+                            "rel": {
+                              "type": "string",
+                              "id": "http://jsonschema.net/load_balancer_data/0/nodes/items/0/links/rel/rel",
+                              "required": false
+                            }
+                          }
+                        },
+                        "self": {
+                          "type": "object",
+                          "id": "http://jsonschema.net/load_balancer_data/0/nodes/items/0/links/self",
+                          "required": false,
+                          "properties": {
+                            "href": {
+                              "type": "string",
+                              "id": "http://jsonschema.net/load_balancer_data/0/nodes/items/0/links/self/href",
+                              "required": false
+                            },
+                            "rel": {
+                              "type": "string",
+                              "id": "http://jsonschema.net/load_balancer_data/0/nodes/items/0/links/self/rel",
+                              "required": false
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "port_name": {
+                      "type": "string",
+                      "id": "http://jsonschema.net/load_balancer_data/0/nodes/items/0/port_name",
+                      "required": false
+                    },
+                    "port_number": {
+                      "type": "number",
+                      "id": "http://jsonschema.net/load_balancer_data/0/nodes/items/0/port_number",
+                      "required": false
+                    },
+                    "runtime_state": {
+                      "type": "string",
+                      "id": "http://jsonschema.net/load_balancer_data/0/nodes/items/0/runtime_state",
+                      "required": false
+                    },
+                    "stats": {
+                      "type": "object",
+                      "id": "http://jsonschema.net/load_balancer_data/0/nodes/items/0/stats",
+                      "required": false,
+                      "properties": {
+                        "bytes_in": {
+                          "type": "number",
+                          "id": "http://jsonschema.net/load_balancer_data/0/nodes/items/0/stats/bytes_in",
+                          "required": false
+                        },
+                        "bytes_out": {
+                          "type": "number",
+                          "id": "http://jsonschema.net/load_balancer_data/0/nodes/items/0/stats/bytes_out",
+                          "required": false
+                        },
+                        "conn_cur": {
+                          "type": "number",
+                          "id": "http://jsonschema.net/load_balancer_data/0/nodes/items/0/stats/conn_cur",
+                          "required": false
+                        },
+                        "conn_max": {
+                          "type": "number",
+                          "id": "http://jsonschema.net/load_balancer_data/0/nodes/items/0/stats/conn_max",
+                          "required": false
+                        },
+                        "conn_tot": {
+                          "type": "number",
+                          "id": "http://jsonschema.net/load_balancer_data/0/nodes/items/0/stats/conn_tot",
+                          "required": false
+                        },
+                        "pkts_in": {
+                          "type": "number",
+                          "id": "http://jsonschema.net/load_balancer_data/0/nodes/items/0/stats/pkts_in",
+                          "required": false
+                        },
+                        "pkts_out": {
+                          "type": "number",
+                          "id": "http://jsonschema.net/load_balancer_data/0/nodes/items/0/stats/pkts_out",
+                          "required": false
+                        }
+                      }
+                    },
+                    "vendor_extensions": {
+                      "type": "object",
+                      "id": "http://jsonschema.net/load_balancer_data/0/nodes/items/0/vendor_extensions",
+                      "required": false
+                    }
+                  }
+                }
+              },
+              "links": {
+                "type": "object",
+                "id": "http://jsonschema.net/load_balancer_data/0/nodes/links",
+                "required": false,
+                "properties": {
+                  "rel": {
+                    "type": "object",
+                    "id": "http://jsonschema.net/load_balancer_data/0/nodes/links/rel",
+                    "required": false,
+                    "properties": {
+                      "href": {
+                        "type": "string",
+                        "id": "http://jsonschema.net/load_balancer_data/0/nodes/links/rel/href",
+                        "required": false
+                      },
+                      "rel": {
+                        "type": "string",
+                        "id": "http://jsonschema.net/load_balancer_data/0/nodes/links/rel/rel",
+                        "required": false
+                      }
+                    }
+                  },
+                  "self": {
+                    "type": "object",
+                    "id": "http://jsonschema.net/load_balancer_data/0/nodes/links/self",
+                    "required": false,
+                    "properties": {
+                      "href": {
+                        "type": "string",
+                        "id": "http://jsonschema.net/load_balancer_data/0/nodes/links/self/href",
+                        "required": false
+                      },
+                      "rel": {
+                        "type": "string",
+                        "id": "http://jsonschema.net/load_balancer_data/0/nodes/links/self/rel",
+                        "required": false
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "port_name": {
+            "type": "string",
+            "id": "http://jsonschema.net/load_balancer_data/0/port_name",
+            "required": false
+          },
+          "port_number": {
+            "type": "number",
+            "id": "http://jsonschema.net/load_balancer_data/0/port_number",
+            "required": false
+          },
+          "protocol": {
+            "type": "string",
+            "id": "http://jsonschema.net/load_balancer_data/0/protocol",
+            "required": false
+          },
+          "runtime_state": {
+            "type": "string",
+            "id": "http://jsonschema.net/load_balancer_data/0/runtime_state",
+            "required": false
+          },
+          "stats": {
+            "type": "object",
+            "id": "http://jsonschema.net/load_balancer_data/0/stats",
+            "required": false,
+            "properties": {
+              "bytes_in": {
+                "type": "number",
+                "id": "http://jsonschema.net/load_balancer_data/0/stats/bytes_in",
+                "required": false
+              },
+              "bytes_out": {
+                "type": "number",
+                "id": "http://jsonschema.net/load_balancer_data/0/stats/bytes_out",
+                "required": false
+              },
+              "conn_cur": {
+                "type": "number",
+                "id": "http://jsonschema.net/load_balancer_data/0/stats/conn_cur",
+                "required": false
+              },
+              "conn_max": {
+                "type": "number",
+                "id": "http://jsonschema.net/load_balancer_data/0/stats/conn_max",
+                "required": false
+              },
+              "conn_tot": {
+                "type": "number",
+                "id": "http://jsonschema.net/load_balancer_data/0/stats/conn_tot",
+                "required": false
+              },
+              "pkts_in": {
+                "type": "number",
+                "id": "http://jsonschema.net/load_balancer_data/0/stats/pkts_in",
+                "required": false
+              },
+              "pkts_out": {
+                "type": "number",
+                "id": "http://jsonschema.net/load_balancer_data/0/stats/pkts_out",
+                "required": false
+              }
+            }
+          },
+          "vendor_extensions": {
+            "type": "object",
+            "id": "http://jsonschema.net/load_balancer_data/0/vendor_extensions",
+            "required": false,
+            "properties": {
+              "client_ssl_profile": {
+                "type": "string",
+                "id": "http://jsonschema.net/load_balancer_data/0/vendor_extensions/client_ssl_profile",
+                "required": false
+              },
+              "default_persistence_profile": {
+                "type": "string",
+                "id": "http://jsonschema.net/load_balancer_data/0/vendor_extensions/default_persistence_profile",
+                "required": false
+              },
+              "fallback_persistence_profile": {
+                "type": "string",
+                "id": "http://jsonschema.net/load_balancer_data/0/vendor_extensions/fallback_persistence_profile",
+                "required": false
+              },
+              "http_profile": {
+                "type": "string",
+                "id": "http://jsonschema.net/load_balancer_data/0/vendor_extensions/http_profile",
+                "required": false
+              },
+              "ruleset": {
+                "type": "string",
+                "id": "http://jsonschema.net/load_balancer_data/0/vendor_extensions/ruleset",
+                "required": false
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

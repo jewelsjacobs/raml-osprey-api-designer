@@ -1,0 +1,40 @@
+{
+  "load_balancer_data": {
+    "stats": {
+      "conn_max": 100,
+      "pkts_out": 4567,
+      "bytes_in": 1234,
+      "pkts_in": 3456,
+      "conn_tot": 200,
+      "conn_cur": 12,
+      "bytes_out": 2345
+    },
+    "health_strategy": {
+      "params": [
+        {
+          "enabled": true
+        }
+      ],
+      "name": "FakeHealthMonitor"
+    },
+    "links": {
+      "self": {
+        "href": "https://api-qual.netsec.rackspace.net/loadbalancers/433240/nodes/10.1.0.1",
+        "rel": "self"
+      },
+      "rel": {
+        "href": "https://api-qual.netsec.rackspace.net/loadbalancers/433240/nodes",
+        "rel": "up"
+      }
+    },
+    "runtime_state": "UNBOUND",
+    "label": "Node-10.1.0.1",
+    "port_name": "http",
+    "limit": 200,
+    "admin_state": "DISABLED",
+    "address": "10.1.0.1",
+    "port_number": 80,
+    "id": "10.1.0.1",
+    "vendor_extensions": {}
+  }
+}

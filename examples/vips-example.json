@@ -1,0 +1,2006 @@
+{
+  "load_balancer_data": [
+    {
+      "runtime_state": "UNHEALTHY",
+      "protocol": "tcp",
+      "description": "A note about this vip.",
+      "links": {
+        "self": {
+          "href": "https://api-qual.netsec.rackspace.net/loadbalancers/433240/vips/192.168.0.1%2F32%3Aall",
+          "rel": "self"
+        },
+        "rel": {
+          "href": "https://api-qual.netsec.rackspace.net/loadbalancers/433240/vips",
+          "rel": "up"
+        }
+      },
+      "destination": "192.168.0.1/32",
+      "label": "Vip1",
+      "port_number": 80,
+      "port_name": "http",
+      "health_strategy": {
+        "ip": "1.2.3.4",
+        "enabled": "enabled",
+        "uri": "/",
+        "port_number": "80"
+      },
+      "admin_state": "ENABLED",
+      "algorithm": "round_robin",
+      "nodes": {
+        "items": [
+          {
+            "stats": {
+              "conn_max": 100,
+              "pkts_out": 4567,
+              "bytes_in": 1234,
+              "pkts_in": 3456,
+              "conn_tot": 200,
+              "conn_cur": 12,
+              "bytes_out": 2345
+            },
+            "health_strategy": {
+              "params": [
+                {
+                  "enabled": false
+                }
+              ],
+              "name": "FakeHealthMonitor"
+            },
+            "links": {
+              "self": {
+                "href": "https://api-qual.netsec.rackspace.net/loadbalancers/433240/nodes/10.1.0.1",
+                "rel": "self"
+              },
+              "rel": {
+                "href": "https://api-qual.netsec.rackspace.net/loadbalancers/433240/nodes",
+                "rel": "up"
+              }
+            },
+            "runtime_state": "ENABLED",
+            "label": "Node1",
+            "port_name": "http",
+            "limit": 200,
+            "admin_state": "DISABLED",
+            "address": "10.1.0.1",
+            "port_number": 80,
+            "id": "10.1.0.1",
+            "vendor_extensions": {}
+          },
+          {
+            "stats": {
+              "conn_max": 100,
+              "pkts_out": 4567,
+              "bytes_in": 1234,
+              "pkts_in": 3456,
+              "conn_tot": 200,
+              "conn_cur": 12,
+              "bytes_out": 2345
+            },
+            "health_strategy": {
+              "params": [
+                {
+                  "enabled": false
+                }
+              ],
+              "name": "FakeHealthMonitor"
+            },
+            "links": {
+              "self": {
+                "href": "https://api-qual.netsec.rackspace.net/loadbalancers/433240/nodes/10.1.0.2",
+                "rel": "self"
+              },
+              "rel": {
+                "href": "https://api-qual.netsec.rackspace.net/loadbalancers/433240/nodes",
+                "rel": "up"
+              }
+            },
+            "runtime_state": "UNBOUND",
+            "label": "Node2",
+            "port_name": "http",
+            "limit": 200,
+            "admin_state": "DISABLED",
+            "address": "10.1.0.2",
+            "port_number": 80,
+            "id": "10.1.0.2",
+            "vendor_extensions": {}
+          },
+          {
+            "stats": {
+              "conn_max": 100,
+              "pkts_out": 4567,
+              "bytes_in": 1234,
+              "pkts_in": 3456,
+              "conn_tot": 200,
+              "conn_cur": 12,
+              "bytes_out": 2345
+            },
+            "health_strategy": {
+              "params": [
+                {
+                  "enabled": true
+                }
+              ],
+              "name": "FakeHealthMonitor"
+            },
+            "links": {
+              "self": {
+                "href": "https://api-qual.netsec.rackspace.net/loadbalancers/433240/nodes/10.1.0.3",
+                "rel": "self"
+              },
+              "rel": {
+                "href": "https://api-qual.netsec.rackspace.net/loadbalancers/433240/nodes",
+                "rel": "up"
+              }
+            },
+            "runtime_state": "ENABLED",
+            "label": "Node3",
+            "port_name": "http",
+            "limit": 200,
+            "admin_state": "DISABLED",
+            "address": "10.1.0.3",
+            "port_number": 80,
+            "id": "10.1.0.3",
+            "vendor_extensions": {}
+          },
+          {
+            "stats": {
+              "conn_max": 100,
+              "pkts_out": 4567,
+              "bytes_in": 1234,
+              "pkts_in": 3456,
+              "conn_tot": 200,
+              "conn_cur": 12,
+              "bytes_out": 2345
+            },
+            "health_strategy": {
+              "params": [
+                {
+                  "enabled": true
+                }
+              ],
+              "name": "FakeHealthMonitor"
+            },
+            "links": {
+              "self": {
+                "href": "https://api-qual.netsec.rackspace.net/loadbalancers/433240/nodes/10.1.0.4",
+                "rel": "self"
+              },
+              "rel": {
+                "href": "https://api-qual.netsec.rackspace.net/loadbalancers/433240/nodes",
+                "rel": "up"
+              }
+            },
+            "runtime_state": "ENABLED",
+            "label": "Node4",
+            "port_name": "http",
+            "limit": 200,
+            "admin_state": "DISABLED",
+            "address": "10.1.0.4",
+            "port_number": 80,
+            "id": "10.1.0.4",
+            "vendor_extensions": {}
+          },
+          {
+            "stats": {
+              "conn_max": 100,
+              "pkts_out": 4567,
+              "bytes_in": 1234,
+              "pkts_in": 3456,
+              "conn_tot": 200,
+              "conn_cur": 12,
+              "bytes_out": 2345
+            },
+            "health_strategy": {
+              "params": [
+                {
+                  "enabled": false
+                }
+              ],
+              "name": "FakeHealthMonitor"
+            },
+            "links": {
+              "self": {
+                "href": "https://api-qual.netsec.rackspace.net/loadbalancers/433240/nodes/10.1.0.5",
+                "rel": "self"
+              },
+              "rel": {
+                "href": "https://api-qual.netsec.rackspace.net/loadbalancers/433240/nodes",
+                "rel": "up"
+              }
+            },
+            "runtime_state": "DISABLED",
+            "label": "Node5",
+            "port_name": "http",
+            "limit": 200,
+            "admin_state": "ENABLED",
+            "address": "10.1.0.5",
+            "port_number": 80,
+            "id": "10.1.0.5",
+            "vendor_extensions": {}
+          },
+          {
+            "stats": {
+              "conn_max": 100,
+              "pkts_out": 4567,
+              "bytes_in": 1234,
+              "pkts_in": 3456,
+              "conn_tot": 200,
+              "conn_cur": 12,
+              "bytes_out": 2345
+            },
+            "health_strategy": {
+              "params": [
+                {
+                  "enabled": true
+                }
+              ],
+              "name": "FakeHealthMonitor"
+            },
+            "links": {
+              "self": {
+                "href": "https://api-qual.netsec.rackspace.net/loadbalancers/433240/nodes/10.1.0.6",
+                "rel": "self"
+              },
+              "rel": {
+                "href": "https://api-qual.netsec.rackspace.net/loadbalancers/433240/nodes",
+                "rel": "up"
+              }
+            },
+            "runtime_state": "DISABLED",
+            "label": "Node6",
+            "port_name": "http",
+            "limit": 200,
+            "admin_state": "ENABLED",
+            "address": "10.1.0.6",
+            "port_number": 80,
+            "id": "10.1.0.6",
+            "vendor_extensions": {}
+          }
+        ],
+        "links": {
+          "self": {
+            "href": "https://api-qual.netsec.rackspace.net/loadbalancers/433240/nodes",
+            "rel": "self"
+          },
+          "rel": {
+            "href": "https://api-qual.netsec.rackspace.net/loadbalancers/433240",
+            "rel": "up"
+          }
+        }
+      },
+      "id": "192.168.0.1/32:all",
+      "vendor_extensions": {
+        "fallback_persistence_profile": "source_addr",
+        "default_persistence_profile": "cookie",
+        "client_ssl_profile": "client_insecure_compatible",
+        "ruleset": "some rules go here - Type is TBD.",
+        "http_profile": "http_lan_optimized_caching"
+      },
+      "stats": {
+        "conn_max": 500,
+        "pkts_out": 6567,
+        "bytes_in": 40002,
+        "pkts_in": 8456,
+        "conn_tot": 2000,
+        "conn_cur": 1200,
+        "bytes_out": 65123
+      }
+    },
+    {
+      "runtime_state": "HEALTHY",
+      "protocol": "tcp",
+      "description": "A note about this vip.",
+      "links": {
+        "self": {
+          "href": "https://api-qual.netsec.rackspace.net/loadbalancers/433240/vips/192.168.0.2%2F32%3Aall",
+          "rel": "self"
+        },
+        "rel": {
+          "href": "https://api-qual.netsec.rackspace.net/loadbalancers/433240/vips",
+          "rel": "up"
+        }
+      },
+      "destination": "192.168.0.2/32",
+      "label": "Vip2",
+      "port_number": 80,
+      "port_name": "http",
+      "health_strategy": {
+        "ip": "1.2.3.4",
+        "enabled": "enabled",
+        "uri": "/",
+        "port_number": "80"
+      },
+      "admin_state": "ENABLED",
+      "algorithm": "round_robin",
+      "nodes": {
+        "items": [
+          {
+            "stats": {
+              "conn_max": 100,
+              "pkts_out": 4567,
+              "bytes_in": 1234,
+              "pkts_in": 3456,
+              "conn_tot": 200,
+              "conn_cur": 12,
+              "bytes_out": 2345
+            },
+            "health_strategy": {
+              "params": [
+                {
+                  "enabled": true
+                }
+              ],
+              "name": "FakeHealthMonitor"
+            },
+            "links": {
+              "self": {
+                "href": "https://api-qual.netsec.rackspace.net/loadbalancers/433240/nodes/10.1.0.1",
+                "rel": "self"
+              },
+              "rel": {
+                "href": "https://api-qual.netsec.rackspace.net/loadbalancers/433240/nodes",
+                "rel": "up"
+              }
+            },
+            "runtime_state": "DISABLED",
+            "label": "Node1",
+            "port_name": "http",
+            "limit": 200,
+            "admin_state": "ENABLED",
+            "address": "10.1.0.1",
+            "port_number": 80,
+            "id": "10.1.0.1",
+            "vendor_extensions": {}
+          },
+          {
+            "stats": {
+              "conn_max": 100,
+              "pkts_out": 4567,
+              "bytes_in": 1234,
+              "pkts_in": 3456,
+              "conn_tot": 200,
+              "conn_cur": 12,
+              "bytes_out": 2345
+            },
+            "health_strategy": {
+              "params": [
+                {
+                  "enabled": false
+                }
+              ],
+              "name": "FakeHealthMonitor"
+            },
+            "links": {
+              "self": {
+                "href": "https://api-qual.netsec.rackspace.net/loadbalancers/433240/nodes/10.1.0.2",
+                "rel": "self"
+              },
+              "rel": {
+                "href": "https://api-qual.netsec.rackspace.net/loadbalancers/433240/nodes",
+                "rel": "up"
+              }
+            },
+            "runtime_state": "ENABLED",
+            "label": "Node2",
+            "port_name": "http",
+            "limit": 200,
+            "admin_state": "ENABLED",
+            "address": "10.1.0.2",
+            "port_number": 80,
+            "id": "10.1.0.2",
+            "vendor_extensions": {}
+          },
+          {
+            "stats": {
+              "conn_max": 100,
+              "pkts_out": 4567,
+              "bytes_in": 1234,
+              "pkts_in": 3456,
+              "conn_tot": 200,
+              "conn_cur": 12,
+              "bytes_out": 2345
+            },
+            "health_strategy": {
+              "params": [
+                {
+                  "enabled": true
+                }
+              ],
+              "name": "FakeHealthMonitor"
+            },
+            "links": {
+              "self": {
+                "href": "https://api-qual.netsec.rackspace.net/loadbalancers/433240/nodes/10.1.0.3",
+                "rel": "self"
+              },
+              "rel": {
+                "href": "https://api-qual.netsec.rackspace.net/loadbalancers/433240/nodes",
+                "rel": "up"
+              }
+            },
+            "runtime_state": "UNBOUND",
+            "label": "Node3",
+            "port_name": "http",
+            "limit": 200,
+            "admin_state": "ENABLED",
+            "address": "10.1.0.3",
+            "port_number": 80,
+            "id": "10.1.0.3",
+            "vendor_extensions": {}
+          },
+          {
+            "stats": {
+              "conn_max": 100,
+              "pkts_out": 4567,
+              "bytes_in": 1234,
+              "pkts_in": 3456,
+              "conn_tot": 200,
+              "conn_cur": 12,
+              "bytes_out": 2345
+            },
+            "health_strategy": {
+              "params": [
+                {
+                  "enabled": false
+                }
+              ],
+              "name": "FakeHealthMonitor"
+            },
+            "links": {
+              "self": {
+                "href": "https://api-qual.netsec.rackspace.net/loadbalancers/433240/nodes/10.1.0.4",
+                "rel": "self"
+              },
+              "rel": {
+                "href": "https://api-qual.netsec.rackspace.net/loadbalancers/433240/nodes",
+                "rel": "up"
+              }
+            },
+            "runtime_state": "ENABLED",
+            "label": "Node4",
+            "port_name": "http",
+            "limit": 200,
+            "admin_state": "DISABLED",
+            "address": "10.1.0.4",
+            "port_number": 80,
+            "id": "10.1.0.4",
+            "vendor_extensions": {}
+          },
+          {
+            "stats": {
+              "conn_max": 100,
+              "pkts_out": 4567,
+              "bytes_in": 1234,
+              "pkts_in": 3456,
+              "conn_tot": 200,
+              "conn_cur": 12,
+              "bytes_out": 2345
+            },
+            "health_strategy": {
+              "params": [
+                {
+                  "enabled": true
+                }
+              ],
+              "name": "FakeHealthMonitor"
+            },
+            "links": {
+              "self": {
+                "href": "https://api-qual.netsec.rackspace.net/loadbalancers/433240/nodes/10.1.0.5",
+                "rel": "self"
+              },
+              "rel": {
+                "href": "https://api-qual.netsec.rackspace.net/loadbalancers/433240/nodes",
+                "rel": "up"
+              }
+            },
+            "runtime_state": "ENABLED",
+            "label": "Node5",
+            "port_name": "http",
+            "limit": 200,
+            "admin_state": "DISABLED",
+            "address": "10.1.0.5",
+            "port_number": 80,
+            "id": "10.1.0.5",
+            "vendor_extensions": {}
+          },
+          {
+            "stats": {
+              "conn_max": 100,
+              "pkts_out": 4567,
+              "bytes_in": 1234,
+              "pkts_in": 3456,
+              "conn_tot": 200,
+              "conn_cur": 12,
+              "bytes_out": 2345
+            },
+            "health_strategy": {
+              "params": [
+                {
+                  "enabled": true
+                }
+              ],
+              "name": "FakeHealthMonitor"
+            },
+            "links": {
+              "self": {
+                "href": "https://api-qual.netsec.rackspace.net/loadbalancers/433240/nodes/10.1.0.6",
+                "rel": "self"
+              },
+              "rel": {
+                "href": "https://api-qual.netsec.rackspace.net/loadbalancers/433240/nodes",
+                "rel": "up"
+              }
+            },
+            "runtime_state": "ENABLED",
+            "label": "Node6",
+            "port_name": "http",
+            "limit": 200,
+            "admin_state": "ENABLED",
+            "address": "10.1.0.6",
+            "port_number": 80,
+            "id": "10.1.0.6",
+            "vendor_extensions": {}
+          }
+        ],
+        "links": {
+          "self": {
+            "href": "https://api-qual.netsec.rackspace.net/loadbalancers/433240/nodes",
+            "rel": "self"
+          },
+          "rel": {
+            "href": "https://api-qual.netsec.rackspace.net/loadbalancers/433240",
+            "rel": "up"
+          }
+        }
+      },
+      "id": "192.168.0.2/32:all",
+      "vendor_extensions": {
+        "fallback_persistence_profile": "source_addr",
+        "default_persistence_profile": "cookie",
+        "client_ssl_profile": "client_insecure_compatible",
+        "ruleset": "some rules go here - Type is TBD.",
+        "http_profile": "http_lan_optimized_caching"
+      },
+      "stats": {
+        "conn_max": 500,
+        "pkts_out": 6567,
+        "bytes_in": 40002,
+        "pkts_in": 8456,
+        "conn_tot": 2000,
+        "conn_cur": 1200,
+        "bytes_out": 65123
+      }
+    },
+    {
+      "runtime_state": "UNHEALTHY",
+      "protocol": "tcp",
+      "description": "A note about this vip.",
+      "links": {
+        "self": {
+          "href": "https://api-qual.netsec.rackspace.net/loadbalancers/433240/vips/192.168.0.3%2F32%3Aall",
+          "rel": "self"
+        },
+        "rel": {
+          "href": "https://api-qual.netsec.rackspace.net/loadbalancers/433240/vips",
+          "rel": "up"
+        }
+      },
+      "destination": "192.168.0.3/32",
+      "label": "Vip3",
+      "port_number": 80,
+      "port_name": "http",
+      "health_strategy": {
+        "ip": "1.2.3.4",
+        "enabled": "enabled",
+        "uri": "/",
+        "port_number": "80"
+      },
+      "admin_state": "DISABLED",
+      "algorithm": "round_robin",
+      "nodes": {
+        "items": [
+          {
+            "stats": {
+              "conn_max": 100,
+              "pkts_out": 4567,
+              "bytes_in": 1234,
+              "pkts_in": 3456,
+              "conn_tot": 200,
+              "conn_cur": 12,
+              "bytes_out": 2345
+            },
+            "health_strategy": {
+              "params": [
+                {
+                  "enabled": false
+                }
+              ],
+              "name": "FakeHealthMonitor"
+            },
+            "links": {
+              "self": {
+                "href": "https://api-qual.netsec.rackspace.net/loadbalancers/433240/nodes/10.1.0.1",
+                "rel": "self"
+              },
+              "rel": {
+                "href": "https://api-qual.netsec.rackspace.net/loadbalancers/433240/nodes",
+                "rel": "up"
+              }
+            },
+            "runtime_state": "UNBOUND",
+            "label": "Node1",
+            "port_name": "http",
+            "limit": 200,
+            "admin_state": "ENABLED",
+            "address": "10.1.0.1",
+            "port_number": 80,
+            "id": "10.1.0.1",
+            "vendor_extensions": {}
+          },
+          {
+            "stats": {
+              "conn_max": 100,
+              "pkts_out": 4567,
+              "bytes_in": 1234,
+              "pkts_in": 3456,
+              "conn_tot": 200,
+              "conn_cur": 12,
+              "bytes_out": 2345
+            },
+            "health_strategy": {
+              "params": [
+                {
+                  "enabled": false
+                }
+              ],
+              "name": "FakeHealthMonitor"
+            },
+            "links": {
+              "self": {
+                "href": "https://api-qual.netsec.rackspace.net/loadbalancers/433240/nodes/10.1.0.2",
+                "rel": "self"
+              },
+              "rel": {
+                "href": "https://api-qual.netsec.rackspace.net/loadbalancers/433240/nodes",
+                "rel": "up"
+              }
+            },
+            "runtime_state": "UNBOUND",
+            "label": "Node2",
+            "port_name": "http",
+            "limit": 200,
+            "admin_state": "DISABLED",
+            "address": "10.1.0.2",
+            "port_number": 80,
+            "id": "10.1.0.2",
+            "vendor_extensions": {}
+          },
+          {
+            "stats": {
+              "conn_max": 100,
+              "pkts_out": 4567,
+              "bytes_in": 1234,
+              "pkts_in": 3456,
+              "conn_tot": 200,
+              "conn_cur": 12,
+              "bytes_out": 2345
+            },
+            "health_strategy": {
+              "params": [
+                {
+                  "enabled": false
+                }
+              ],
+              "name": "FakeHealthMonitor"
+            },
+            "links": {
+              "self": {
+                "href": "https://api-qual.netsec.rackspace.net/loadbalancers/433240/nodes/10.1.0.3",
+                "rel": "self"
+              },
+              "rel": {
+                "href": "https://api-qual.netsec.rackspace.net/loadbalancers/433240/nodes",
+                "rel": "up"
+              }
+            },
+            "runtime_state": "UNBOUND",
+            "label": "Node3",
+            "port_name": "http",
+            "limit": 200,
+            "admin_state": "ENABLED",
+            "address": "10.1.0.3",
+            "port_number": 80,
+            "id": "10.1.0.3",
+            "vendor_extensions": {}
+          },
+          {
+            "stats": {
+              "conn_max": 100,
+              "pkts_out": 4567,
+              "bytes_in": 1234,
+              "pkts_in": 3456,
+              "conn_tot": 200,
+              "conn_cur": 12,
+              "bytes_out": 2345
+            },
+            "health_strategy": {
+              "params": [
+                {
+                  "enabled": true
+                }
+              ],
+              "name": "FakeHealthMonitor"
+            },
+            "links": {
+              "self": {
+                "href": "https://api-qual.netsec.rackspace.net/loadbalancers/433240/nodes/10.1.0.4",
+                "rel": "self"
+              },
+              "rel": {
+                "href": "https://api-qual.netsec.rackspace.net/loadbalancers/433240/nodes",
+                "rel": "up"
+              }
+            },
+            "runtime_state": "ENABLED",
+            "label": "Node4",
+            "port_name": "http",
+            "limit": 200,
+            "admin_state": "DISABLED",
+            "address": "10.1.0.4",
+            "port_number": 80,
+            "id": "10.1.0.4",
+            "vendor_extensions": {}
+          },
+          {
+            "stats": {
+              "conn_max": 100,
+              "pkts_out": 4567,
+              "bytes_in": 1234,
+              "pkts_in": 3456,
+              "conn_tot": 200,
+              "conn_cur": 12,
+              "bytes_out": 2345
+            },
+            "health_strategy": {
+              "params": [
+                {
+                  "enabled": true
+                }
+              ],
+              "name": "FakeHealthMonitor"
+            },
+            "links": {
+              "self": {
+                "href": "https://api-qual.netsec.rackspace.net/loadbalancers/433240/nodes/10.1.0.5",
+                "rel": "self"
+              },
+              "rel": {
+                "href": "https://api-qual.netsec.rackspace.net/loadbalancers/433240/nodes",
+                "rel": "up"
+              }
+            },
+            "runtime_state": "UNBOUND",
+            "label": "Node5",
+            "port_name": "http",
+            "limit": 200,
+            "admin_state": "DISABLED",
+            "address": "10.1.0.5",
+            "port_number": 80,
+            "id": "10.1.0.5",
+            "vendor_extensions": {}
+          },
+          {
+            "stats": {
+              "conn_max": 100,
+              "pkts_out": 4567,
+              "bytes_in": 1234,
+              "pkts_in": 3456,
+              "conn_tot": 200,
+              "conn_cur": 12,
+              "bytes_out": 2345
+            },
+            "health_strategy": {
+              "params": [
+                {
+                  "enabled": false
+                }
+              ],
+              "name": "FakeHealthMonitor"
+            },
+            "links": {
+              "self": {
+                "href": "https://api-qual.netsec.rackspace.net/loadbalancers/433240/nodes/10.1.0.6",
+                "rel": "self"
+              },
+              "rel": {
+                "href": "https://api-qual.netsec.rackspace.net/loadbalancers/433240/nodes",
+                "rel": "up"
+              }
+            },
+            "runtime_state": "ENABLED",
+            "label": "Node6",
+            "port_name": "http",
+            "limit": 200,
+            "admin_state": "ENABLED",
+            "address": "10.1.0.6",
+            "port_number": 80,
+            "id": "10.1.0.6",
+            "vendor_extensions": {}
+          }
+        ],
+        "links": {
+          "self": {
+            "href": "https://api-qual.netsec.rackspace.net/loadbalancers/433240/nodes",
+            "rel": "self"
+          },
+          "rel": {
+            "href": "https://api-qual.netsec.rackspace.net/loadbalancers/433240",
+            "rel": "up"
+          }
+        }
+      },
+      "id": "192.168.0.3/32:all",
+      "vendor_extensions": {
+        "fallback_persistence_profile": "source_addr",
+        "default_persistence_profile": "cookie",
+        "client_ssl_profile": "client_insecure_compatible",
+        "ruleset": "some rules go here - Type is TBD.",
+        "http_profile": "http_lan_optimized_caching"
+      },
+      "stats": {
+        "conn_max": 500,
+        "pkts_out": 6567,
+        "bytes_in": 40002,
+        "pkts_in": 8456,
+        "conn_tot": 2000,
+        "conn_cur": 1200,
+        "bytes_out": 65123
+      }
+    },
+    {
+      "runtime_state": "HEALTHY",
+      "protocol": "tcp",
+      "description": "A note about this vip.",
+      "links": {
+        "self": {
+          "href": "https://api-qual.netsec.rackspace.net/loadbalancers/433240/vips/192.168.0.4%2F32%3Aall",
+          "rel": "self"
+        },
+        "rel": {
+          "href": "https://api-qual.netsec.rackspace.net/loadbalancers/433240/vips",
+          "rel": "up"
+        }
+      },
+      "destination": "192.168.0.4/32",
+      "label": "Vip4",
+      "port_number": 80,
+      "port_name": "http",
+      "health_strategy": {
+        "ip": "1.2.3.4",
+        "enabled": "enabled",
+        "uri": "/",
+        "port_number": "80"
+      },
+      "admin_state": "DISABLED",
+      "algorithm": "round_robin",
+      "nodes": {
+        "items": [
+          {
+            "stats": {
+              "conn_max": 100,
+              "pkts_out": 4567,
+              "bytes_in": 1234,
+              "pkts_in": 3456,
+              "conn_tot": 200,
+              "conn_cur": 12,
+              "bytes_out": 2345
+            },
+            "health_strategy": {
+              "params": [
+                {
+                  "enabled": false
+                }
+              ],
+              "name": "FakeHealthMonitor"
+            },
+            "links": {
+              "self": {
+                "href": "https://api-qual.netsec.rackspace.net/loadbalancers/433240/nodes/10.1.0.1",
+                "rel": "self"
+              },
+              "rel": {
+                "href": "https://api-qual.netsec.rackspace.net/loadbalancers/433240/nodes",
+                "rel": "up"
+              }
+            },
+            "runtime_state": "DISABLED",
+            "label": "Node1",
+            "port_name": "http",
+            "limit": 200,
+            "admin_state": "DISABLED",
+            "address": "10.1.0.1",
+            "port_number": 80,
+            "id": "10.1.0.1",
+            "vendor_extensions": {}
+          },
+          {
+            "stats": {
+              "conn_max": 100,
+              "pkts_out": 4567,
+              "bytes_in": 1234,
+              "pkts_in": 3456,
+              "conn_tot": 200,
+              "conn_cur": 12,
+              "bytes_out": 2345
+            },
+            "health_strategy": {
+              "params": [
+                {
+                  "enabled": true
+                }
+              ],
+              "name": "FakeHealthMonitor"
+            },
+            "links": {
+              "self": {
+                "href": "https://api-qual.netsec.rackspace.net/loadbalancers/433240/nodes/10.1.0.2",
+                "rel": "self"
+              },
+              "rel": {
+                "href": "https://api-qual.netsec.rackspace.net/loadbalancers/433240/nodes",
+                "rel": "up"
+              }
+            },
+            "runtime_state": "ENABLED",
+            "label": "Node2",
+            "port_name": "http",
+            "limit": 200,
+            "admin_state": "ENABLED",
+            "address": "10.1.0.2",
+            "port_number": 80,
+            "id": "10.1.0.2",
+            "vendor_extensions": {}
+          },
+          {
+            "stats": {
+              "conn_max": 100,
+              "pkts_out": 4567,
+              "bytes_in": 1234,
+              "pkts_in": 3456,
+              "conn_tot": 200,
+              "conn_cur": 12,
+              "bytes_out": 2345
+            },
+            "health_strategy": {
+              "params": [
+                {
+                  "enabled": false
+                }
+              ],
+              "name": "FakeHealthMonitor"
+            },
+            "links": {
+              "self": {
+                "href": "https://api-qual.netsec.rackspace.net/loadbalancers/433240/nodes/10.1.0.3",
+                "rel": "self"
+              },
+              "rel": {
+                "href": "https://api-qual.netsec.rackspace.net/loadbalancers/433240/nodes",
+                "rel": "up"
+              }
+            },
+            "runtime_state": "ENABLED",
+            "label": "Node3",
+            "port_name": "http",
+            "limit": 200,
+            "admin_state": "DISABLED",
+            "address": "10.1.0.3",
+            "port_number": 80,
+            "id": "10.1.0.3",
+            "vendor_extensions": {}
+          },
+          {
+            "stats": {
+              "conn_max": 100,
+              "pkts_out": 4567,
+              "bytes_in": 1234,
+              "pkts_in": 3456,
+              "conn_tot": 200,
+              "conn_cur": 12,
+              "bytes_out": 2345
+            },
+            "health_strategy": {
+              "params": [
+                {
+                  "enabled": false
+                }
+              ],
+              "name": "FakeHealthMonitor"
+            },
+            "links": {
+              "self": {
+                "href": "https://api-qual.netsec.rackspace.net/loadbalancers/433240/nodes/10.1.0.4",
+                "rel": "self"
+              },
+              "rel": {
+                "href": "https://api-qual.netsec.rackspace.net/loadbalancers/433240/nodes",
+                "rel": "up"
+              }
+            },
+            "runtime_state": "UNBOUND",
+            "label": "Node4",
+            "port_name": "http",
+            "limit": 200,
+            "admin_state": "DISABLED",
+            "address": "10.1.0.4",
+            "port_number": 80,
+            "id": "10.1.0.4",
+            "vendor_extensions": {}
+          },
+          {
+            "stats": {
+              "conn_max": 100,
+              "pkts_out": 4567,
+              "bytes_in": 1234,
+              "pkts_in": 3456,
+              "conn_tot": 200,
+              "conn_cur": 12,
+              "bytes_out": 2345
+            },
+            "health_strategy": {
+              "params": [
+                {
+                  "enabled": true
+                }
+              ],
+              "name": "FakeHealthMonitor"
+            },
+            "links": {
+              "self": {
+                "href": "https://api-qual.netsec.rackspace.net/loadbalancers/433240/nodes/10.1.0.5",
+                "rel": "self"
+              },
+              "rel": {
+                "href": "https://api-qual.netsec.rackspace.net/loadbalancers/433240/nodes",
+                "rel": "up"
+              }
+            },
+            "runtime_state": "UNBOUND",
+            "label": "Node5",
+            "port_name": "http",
+            "limit": 200,
+            "admin_state": "ENABLED",
+            "address": "10.1.0.5",
+            "port_number": 80,
+            "id": "10.1.0.5",
+            "vendor_extensions": {}
+          },
+          {
+            "stats": {
+              "conn_max": 100,
+              "pkts_out": 4567,
+              "bytes_in": 1234,
+              "pkts_in": 3456,
+              "conn_tot": 200,
+              "conn_cur": 12,
+              "bytes_out": 2345
+            },
+            "health_strategy": {
+              "params": [
+                {
+                  "enabled": false
+                }
+              ],
+              "name": "FakeHealthMonitor"
+            },
+            "links": {
+              "self": {
+                "href": "https://api-qual.netsec.rackspace.net/loadbalancers/433240/nodes/10.1.0.6",
+                "rel": "self"
+              },
+              "rel": {
+                "href": "https://api-qual.netsec.rackspace.net/loadbalancers/433240/nodes",
+                "rel": "up"
+              }
+            },
+            "runtime_state": "ENABLED",
+            "label": "Node6",
+            "port_name": "http",
+            "limit": 200,
+            "admin_state": "ENABLED",
+            "address": "10.1.0.6",
+            "port_number": 80,
+            "id": "10.1.0.6",
+            "vendor_extensions": {}
+          }
+        ],
+        "links": {
+          "self": {
+            "href": "https://api-qual.netsec.rackspace.net/loadbalancers/433240/nodes",
+            "rel": "self"
+          },
+          "rel": {
+            "href": "https://api-qual.netsec.rackspace.net/loadbalancers/433240",
+            "rel": "up"
+          }
+        }
+      },
+      "id": "192.168.0.4/32:all",
+      "vendor_extensions": {
+        "fallback_persistence_profile": "source_addr",
+        "default_persistence_profile": "cookie",
+        "client_ssl_profile": "client_insecure_compatible",
+        "ruleset": "some rules go here - Type is TBD.",
+        "http_profile": "http_lan_optimized_caching"
+      },
+      "stats": {
+        "conn_max": 500,
+        "pkts_out": 6567,
+        "bytes_in": 40002,
+        "pkts_in": 8456,
+        "conn_tot": 2000,
+        "conn_cur": 1200,
+        "bytes_out": 65123
+      }
+    },
+    {
+      "runtime_state": "HEALTHY",
+      "protocol": "tcp",
+      "description": "A note about this vip.",
+      "links": {
+        "self": {
+          "href": "https://api-qual.netsec.rackspace.net/loadbalancers/433240/vips/192.168.0.5%2F32%3Aall",
+          "rel": "self"
+        },
+        "rel": {
+          "href": "https://api-qual.netsec.rackspace.net/loadbalancers/433240/vips",
+          "rel": "up"
+        }
+      },
+      "destination": "192.168.0.5/32",
+      "label": "Vip5",
+      "port_number": 80,
+      "port_name": "http",
+      "health_strategy": {
+        "ip": "1.2.3.4",
+        "enabled": "enabled",
+        "uri": "/",
+        "port_number": "80"
+      },
+      "admin_state": "ENABLED",
+      "algorithm": "round_robin",
+      "nodes": {
+        "items": [
+          {
+            "stats": {
+              "conn_max": 100,
+              "pkts_out": 4567,
+              "bytes_in": 1234,
+              "pkts_in": 3456,
+              "conn_tot": 200,
+              "conn_cur": 12,
+              "bytes_out": 2345
+            },
+            "health_strategy": {
+              "params": [
+                {
+                  "enabled": true
+                }
+              ],
+              "name": "FakeHealthMonitor"
+            },
+            "links": {
+              "self": {
+                "href": "https://api-qual.netsec.rackspace.net/loadbalancers/433240/nodes/10.1.0.1",
+                "rel": "self"
+              },
+              "rel": {
+                "href": "https://api-qual.netsec.rackspace.net/loadbalancers/433240/nodes",
+                "rel": "up"
+              }
+            },
+            "runtime_state": "UNBOUND",
+            "label": "Node1",
+            "port_name": "http",
+            "limit": 200,
+            "admin_state": "DISABLED",
+            "address": "10.1.0.1",
+            "port_number": 80,
+            "id": "10.1.0.1",
+            "vendor_extensions": {}
+          },
+          {
+            "stats": {
+              "conn_max": 100,
+              "pkts_out": 4567,
+              "bytes_in": 1234,
+              "pkts_in": 3456,
+              "conn_tot": 200,
+              "conn_cur": 12,
+              "bytes_out": 2345
+            },
+            "health_strategy": {
+              "params": [
+                {
+                  "enabled": true
+                }
+              ],
+              "name": "FakeHealthMonitor"
+            },
+            "links": {
+              "self": {
+                "href": "https://api-qual.netsec.rackspace.net/loadbalancers/433240/nodes/10.1.0.2",
+                "rel": "self"
+              },
+              "rel": {
+                "href": "https://api-qual.netsec.rackspace.net/loadbalancers/433240/nodes",
+                "rel": "up"
+              }
+            },
+            "runtime_state": "DISABLED",
+            "label": "Node2",
+            "port_name": "http",
+            "limit": 200,
+            "admin_state": "ENABLED",
+            "address": "10.1.0.2",
+            "port_number": 80,
+            "id": "10.1.0.2",
+            "vendor_extensions": {}
+          },
+          {
+            "stats": {
+              "conn_max": 100,
+              "pkts_out": 4567,
+              "bytes_in": 1234,
+              "pkts_in": 3456,
+              "conn_tot": 200,
+              "conn_cur": 12,
+              "bytes_out": 2345
+            },
+            "health_strategy": {
+              "params": [
+                {
+                  "enabled": true
+                }
+              ],
+              "name": "FakeHealthMonitor"
+            },
+            "links": {
+              "self": {
+                "href": "https://api-qual.netsec.rackspace.net/loadbalancers/433240/nodes/10.1.0.3",
+                "rel": "self"
+              },
+              "rel": {
+                "href": "https://api-qual.netsec.rackspace.net/loadbalancers/433240/nodes",
+                "rel": "up"
+              }
+            },
+            "runtime_state": "UNBOUND",
+            "label": "Node3",
+            "port_name": "http",
+            "limit": 200,
+            "admin_state": "DISABLED",
+            "address": "10.1.0.3",
+            "port_number": 80,
+            "id": "10.1.0.3",
+            "vendor_extensions": {}
+          },
+          {
+            "stats": {
+              "conn_max": 100,
+              "pkts_out": 4567,
+              "bytes_in": 1234,
+              "pkts_in": 3456,
+              "conn_tot": 200,
+              "conn_cur": 12,
+              "bytes_out": 2345
+            },
+            "health_strategy": {
+              "params": [
+                {
+                  "enabled": false
+                }
+              ],
+              "name": "FakeHealthMonitor"
+            },
+            "links": {
+              "self": {
+                "href": "https://api-qual.netsec.rackspace.net/loadbalancers/433240/nodes/10.1.0.4",
+                "rel": "self"
+              },
+              "rel": {
+                "href": "https://api-qual.netsec.rackspace.net/loadbalancers/433240/nodes",
+                "rel": "up"
+              }
+            },
+            "runtime_state": "UNBOUND",
+            "label": "Node4",
+            "port_name": "http",
+            "limit": 200,
+            "admin_state": "ENABLED",
+            "address": "10.1.0.4",
+            "port_number": 80,
+            "id": "10.1.0.4",
+            "vendor_extensions": {}
+          },
+          {
+            "stats": {
+              "conn_max": 100,
+              "pkts_out": 4567,
+              "bytes_in": 1234,
+              "pkts_in": 3456,
+              "conn_tot": 200,
+              "conn_cur": 12,
+              "bytes_out": 2345
+            },
+            "health_strategy": {
+              "params": [
+                {
+                  "enabled": true
+                }
+              ],
+              "name": "FakeHealthMonitor"
+            },
+            "links": {
+              "self": {
+                "href": "https://api-qual.netsec.rackspace.net/loadbalancers/433240/nodes/10.1.0.5",
+                "rel": "self"
+              },
+              "rel": {
+                "href": "https://api-qual.netsec.rackspace.net/loadbalancers/433240/nodes",
+                "rel": "up"
+              }
+            },
+            "runtime_state": "DISABLED",
+            "label": "Node5",
+            "port_name": "http",
+            "limit": 200,
+            "admin_state": "DISABLED",
+            "address": "10.1.0.5",
+            "port_number": 80,
+            "id": "10.1.0.5",
+            "vendor_extensions": {}
+          },
+          {
+            "stats": {
+              "conn_max": 100,
+              "pkts_out": 4567,
+              "bytes_in": 1234,
+              "pkts_in": 3456,
+              "conn_tot": 200,
+              "conn_cur": 12,
+              "bytes_out": 2345
+            },
+            "health_strategy": {
+              "params": [
+                {
+                  "enabled": true
+                }
+              ],
+              "name": "FakeHealthMonitor"
+            },
+            "links": {
+              "self": {
+                "href": "https://api-qual.netsec.rackspace.net/loadbalancers/433240/nodes/10.1.0.6",
+                "rel": "self"
+              },
+              "rel": {
+                "href": "https://api-qual.netsec.rackspace.net/loadbalancers/433240/nodes",
+                "rel": "up"
+              }
+            },
+            "runtime_state": "DISABLED",
+            "label": "Node6",
+            "port_name": "http",
+            "limit": 200,
+            "admin_state": "ENABLED",
+            "address": "10.1.0.6",
+            "port_number": 80,
+            "id": "10.1.0.6",
+            "vendor_extensions": {}
+          }
+        ],
+        "links": {
+          "self": {
+            "href": "https://api-qual.netsec.rackspace.net/loadbalancers/433240/nodes",
+            "rel": "self"
+          },
+          "rel": {
+            "href": "https://api-qual.netsec.rackspace.net/loadbalancers/433240",
+            "rel": "up"
+          }
+        }
+      },
+      "id": "192.168.0.5/32:all",
+      "vendor_extensions": {
+        "fallback_persistence_profile": "source_addr",
+        "default_persistence_profile": "cookie",
+        "client_ssl_profile": "client_insecure_compatible",
+        "ruleset": "some rules go here - Type is TBD.",
+        "http_profile": "http_lan_optimized_caching"
+      },
+      "stats": {
+        "conn_max": 500,
+        "pkts_out": 6567,
+        "bytes_in": 40002,
+        "pkts_in": 8456,
+        "conn_tot": 2000,
+        "conn_cur": 1200,
+        "bytes_out": 65123
+      }
+    },
+    {
+      "runtime_state": "HEALTHY",
+      "protocol": "tcp",
+      "description": "A note about this vip.",
+      "links": {
+        "self": {
+          "href": "https://api-qual.netsec.rackspace.net/loadbalancers/433240/vips/192.168.0.6%2F32%3Aall",
+          "rel": "self"
+        },
+        "rel": {
+          "href": "https://api-qual.netsec.rackspace.net/loadbalancers/433240/vips",
+          "rel": "up"
+        }
+      },
+      "destination": "192.168.0.6/32",
+      "label": "Vip6",
+      "port_number": 80,
+      "port_name": "http",
+      "health_strategy": {
+        "ip": "1.2.3.4",
+        "enabled": "enabled",
+        "uri": "/",
+        "port_number": "80"
+      },
+      "admin_state": "ENABLED",
+      "algorithm": "round_robin",
+      "nodes": {
+        "items": [
+          {
+            "stats": {
+              "conn_max": 100,
+              "pkts_out": 4567,
+              "bytes_in": 1234,
+              "pkts_in": 3456,
+              "conn_tot": 200,
+              "conn_cur": 12,
+              "bytes_out": 2345
+            },
+            "health_strategy": {
+              "params": [
+                {
+                  "enabled": false
+                }
+              ],
+              "name": "FakeHealthMonitor"
+            },
+            "links": {
+              "self": {
+                "href": "https://api-qual.netsec.rackspace.net/loadbalancers/433240/nodes/10.1.0.1",
+                "rel": "self"
+              },
+              "rel": {
+                "href": "https://api-qual.netsec.rackspace.net/loadbalancers/433240/nodes",
+                "rel": "up"
+              }
+            },
+            "runtime_state": "DISABLED",
+            "label": "Node1",
+            "port_name": "http",
+            "limit": 200,
+            "admin_state": "DISABLED",
+            "address": "10.1.0.1",
+            "port_number": 80,
+            "id": "10.1.0.1",
+            "vendor_extensions": {}
+          },
+          {
+            "stats": {
+              "conn_max": 100,
+              "pkts_out": 4567,
+              "bytes_in": 1234,
+              "pkts_in": 3456,
+              "conn_tot": 200,
+              "conn_cur": 12,
+              "bytes_out": 2345
+            },
+            "health_strategy": {
+              "params": [
+                {
+                  "enabled": false
+                }
+              ],
+              "name": "FakeHealthMonitor"
+            },
+            "links": {
+              "self": {
+                "href": "https://api-qual.netsec.rackspace.net/loadbalancers/433240/nodes/10.1.0.2",
+                "rel": "self"
+              },
+              "rel": {
+                "href": "https://api-qual.netsec.rackspace.net/loadbalancers/433240/nodes",
+                "rel": "up"
+              }
+            },
+            "runtime_state": "UNBOUND",
+            "label": "Node2",
+            "port_name": "http",
+            "limit": 200,
+            "admin_state": "DISABLED",
+            "address": "10.1.0.2",
+            "port_number": 80,
+            "id": "10.1.0.2",
+            "vendor_extensions": {}
+          },
+          {
+            "stats": {
+              "conn_max": 100,
+              "pkts_out": 4567,
+              "bytes_in": 1234,
+              "pkts_in": 3456,
+              "conn_tot": 200,
+              "conn_cur": 12,
+              "bytes_out": 2345
+            },
+            "health_strategy": {
+              "params": [
+                {
+                  "enabled": false
+                }
+              ],
+              "name": "FakeHealthMonitor"
+            },
+            "links": {
+              "self": {
+                "href": "https://api-qual.netsec.rackspace.net/loadbalancers/433240/nodes/10.1.0.3",
+                "rel": "self"
+              },
+              "rel": {
+                "href": "https://api-qual.netsec.rackspace.net/loadbalancers/433240/nodes",
+                "rel": "up"
+              }
+            },
+            "runtime_state": "UNBOUND",
+            "label": "Node3",
+            "port_name": "http",
+            "limit": 200,
+            "admin_state": "DISABLED",
+            "address": "10.1.0.3",
+            "port_number": 80,
+            "id": "10.1.0.3",
+            "vendor_extensions": {}
+          },
+          {
+            "stats": {
+              "conn_max": 100,
+              "pkts_out": 4567,
+              "bytes_in": 1234,
+              "pkts_in": 3456,
+              "conn_tot": 200,
+              "conn_cur": 12,
+              "bytes_out": 2345
+            },
+            "health_strategy": {
+              "params": [
+                {
+                  "enabled": true
+                }
+              ],
+              "name": "FakeHealthMonitor"
+            },
+            "links": {
+              "self": {
+                "href": "https://api-qual.netsec.rackspace.net/loadbalancers/433240/nodes/10.1.0.4",
+                "rel": "self"
+              },
+              "rel": {
+                "href": "https://api-qual.netsec.rackspace.net/loadbalancers/433240/nodes",
+                "rel": "up"
+              }
+            },
+            "runtime_state": "UNBOUND",
+            "label": "Node4",
+            "port_name": "http",
+            "limit": 200,
+            "admin_state": "ENABLED",
+            "address": "10.1.0.4",
+            "port_number": 80,
+            "id": "10.1.0.4",
+            "vendor_extensions": {}
+          },
+          {
+            "stats": {
+              "conn_max": 100,
+              "pkts_out": 4567,
+              "bytes_in": 1234,
+              "pkts_in": 3456,
+              "conn_tot": 200,
+              "conn_cur": 12,
+              "bytes_out": 2345
+            },
+            "health_strategy": {
+              "params": [
+                {
+                  "enabled": false
+                }
+              ],
+              "name": "FakeHealthMonitor"
+            },
+            "links": {
+              "self": {
+                "href": "https://api-qual.netsec.rackspace.net/loadbalancers/433240/nodes/10.1.0.5",
+                "rel": "self"
+              },
+              "rel": {
+                "href": "https://api-qual.netsec.rackspace.net/loadbalancers/433240/nodes",
+                "rel": "up"
+              }
+            },
+            "runtime_state": "DISABLED",
+            "label": "Node5",
+            "port_name": "http",
+            "limit": 200,
+            "admin_state": "ENABLED",
+            "address": "10.1.0.5",
+            "port_number": 80,
+            "id": "10.1.0.5",
+            "vendor_extensions": {}
+          },
+          {
+            "stats": {
+              "conn_max": 100,
+              "pkts_out": 4567,
+              "bytes_in": 1234,
+              "pkts_in": 3456,
+              "conn_tot": 200,
+              "conn_cur": 12,
+              "bytes_out": 2345
+            },
+            "health_strategy": {
+              "params": [
+                {
+                  "enabled": true
+                }
+              ],
+              "name": "FakeHealthMonitor"
+            },
+            "links": {
+              "self": {
+                "href": "https://api-qual.netsec.rackspace.net/loadbalancers/433240/nodes/10.1.0.6",
+                "rel": "self"
+              },
+              "rel": {
+                "href": "https://api-qual.netsec.rackspace.net/loadbalancers/433240/nodes",
+                "rel": "up"
+              }
+            },
+            "runtime_state": "DISABLED",
+            "label": "Node6",
+            "port_name": "http",
+            "limit": 200,
+            "admin_state": "DISABLED",
+            "address": "10.1.0.6",
+            "port_number": 80,
+            "id": "10.1.0.6",
+            "vendor_extensions": {}
+          }
+        ],
+        "links": {
+          "self": {
+            "href": "https://api-qual.netsec.rackspace.net/loadbalancers/433240/nodes",
+            "rel": "self"
+          },
+          "rel": {
+            "href": "https://api-qual.netsec.rackspace.net/loadbalancers/433240",
+            "rel": "up"
+          }
+        }
+      },
+      "id": "192.168.0.6/32:all",
+      "vendor_extensions": {
+        "fallback_persistence_profile": "source_addr",
+        "default_persistence_profile": "cookie",
+        "client_ssl_profile": "client_insecure_compatible",
+        "ruleset": "some rules go here - Type is TBD.",
+        "http_profile": "http_lan_optimized_caching"
+      },
+      "stats": {
+        "conn_max": 500,
+        "pkts_out": 6567,
+        "bytes_in": 40002,
+        "pkts_in": 8456,
+        "conn_tot": 2000,
+        "conn_cur": 1200,
+        "bytes_out": 65123
+      }
+    },
+    {
+      "runtime_state": "UNHEALTHY",
+      "protocol": "tcp",
+      "description": "A note about this vip.",
+      "links": {
+        "self": {
+          "href": "https://api-qual.netsec.rackspace.net/loadbalancers/433240/vips/192.168.0.7%2F32%3Aall",
+          "rel": "self"
+        },
+        "rel": {
+          "href": "https://api-qual.netsec.rackspace.net/loadbalancers/433240/vips",
+          "rel": "up"
+        }
+      },
+      "destination": "192.168.0.7/32",
+      "label": "Vip7",
+      "port_number": 80,
+      "port_name": "http",
+      "health_strategy": {
+        "ip": "1.2.3.4",
+        "enabled": "enabled",
+        "uri": "/",
+        "port_number": "80"
+      },
+      "admin_state": "DISABLED",
+      "algorithm": "round_robin",
+      "nodes": {
+        "items": [
+          {
+            "stats": {
+              "conn_max": 100,
+              "pkts_out": 4567,
+              "bytes_in": 1234,
+              "pkts_in": 3456,
+              "conn_tot": 200,
+              "conn_cur": 12,
+              "bytes_out": 2345
+            },
+            "health_strategy": {
+              "params": [
+                {
+                  "enabled": true
+                }
+              ],
+              "name": "FakeHealthMonitor"
+            },
+            "links": {
+              "self": {
+                "href": "https://api-qual.netsec.rackspace.net/loadbalancers/433240/nodes/10.1.0.1",
+                "rel": "self"
+              },
+              "rel": {
+                "href": "https://api-qual.netsec.rackspace.net/loadbalancers/433240/nodes",
+                "rel": "up"
+              }
+            },
+            "runtime_state": "DISABLED",
+            "label": "Node1",
+            "port_name": "http",
+            "limit": 200,
+            "admin_state": "ENABLED",
+            "address": "10.1.0.1",
+            "port_number": 80,
+            "id": "10.1.0.1",
+            "vendor_extensions": {}
+          },
+          {
+            "stats": {
+              "conn_max": 100,
+              "pkts_out": 4567,
+              "bytes_in": 1234,
+              "pkts_in": 3456,
+              "conn_tot": 200,
+              "conn_cur": 12,
+              "bytes_out": 2345
+            },
+            "health_strategy": {
+              "params": [
+                {
+                  "enabled": false
+                }
+              ],
+              "name": "FakeHealthMonitor"
+            },
+            "links": {
+              "self": {
+                "href": "https://api-qual.netsec.rackspace.net/loadbalancers/433240/nodes/10.1.0.2",
+                "rel": "self"
+              },
+              "rel": {
+                "href": "https://api-qual.netsec.rackspace.net/loadbalancers/433240/nodes",
+                "rel": "up"
+              }
+            },
+            "runtime_state": "UNBOUND",
+            "label": "Node2",
+            "port_name": "http",
+            "limit": 200,
+            "admin_state": "ENABLED",
+            "address": "10.1.0.2",
+            "port_number": 80,
+            "id": "10.1.0.2",
+            "vendor_extensions": {}
+          },
+          {
+            "stats": {
+              "conn_max": 100,
+              "pkts_out": 4567,
+              "bytes_in": 1234,
+              "pkts_in": 3456,
+              "conn_tot": 200,
+              "conn_cur": 12,
+              "bytes_out": 2345
+            },
+            "health_strategy": {
+              "params": [
+                {
+                  "enabled": true
+                }
+              ],
+              "name": "FakeHealthMonitor"
+            },
+            "links": {
+              "self": {
+                "href": "https://api-qual.netsec.rackspace.net/loadbalancers/433240/nodes/10.1.0.3",
+                "rel": "self"
+              },
+              "rel": {
+                "href": "https://api-qual.netsec.rackspace.net/loadbalancers/433240/nodes",
+                "rel": "up"
+              }
+            },
+            "runtime_state": "ENABLED",
+            "label": "Node3",
+            "port_name": "http",
+            "limit": 200,
+            "admin_state": "DISABLED",
+            "address": "10.1.0.3",
+            "port_number": 80,
+            "id": "10.1.0.3",
+            "vendor_extensions": {}
+          },
+          {
+            "stats": {
+              "conn_max": 100,
+              "pkts_out": 4567,
+              "bytes_in": 1234,
+              "pkts_in": 3456,
+              "conn_tot": 200,
+              "conn_cur": 12,
+              "bytes_out": 2345
+            },
+            "health_strategy": {
+              "params": [
+                {
+                  "enabled": false
+                }
+              ],
+              "name": "FakeHealthMonitor"
+            },
+            "links": {
+              "self": {
+                "href": "https://api-qual.netsec.rackspace.net/loadbalancers/433240/nodes/10.1.0.4",
+                "rel": "self"
+              },
+              "rel": {
+                "href": "https://api-qual.netsec.rackspace.net/loadbalancers/433240/nodes",
+                "rel": "up"
+              }
+            },
+            "runtime_state": "UNBOUND",
+            "label": "Node4",
+            "port_name": "http",
+            "limit": 200,
+            "admin_state": "DISABLED",
+            "address": "10.1.0.4",
+            "port_number": 80,
+            "id": "10.1.0.4",
+            "vendor_extensions": {}
+          },
+          {
+            "stats": {
+              "conn_max": 100,
+              "pkts_out": 4567,
+              "bytes_in": 1234,
+              "pkts_in": 3456,
+              "conn_tot": 200,
+              "conn_cur": 12,
+              "bytes_out": 2345
+            },
+            "health_strategy": {
+              "params": [
+                {
+                  "enabled": true
+                }
+              ],
+              "name": "FakeHealthMonitor"
+            },
+            "links": {
+              "self": {
+                "href": "https://api-qual.netsec.rackspace.net/loadbalancers/433240/nodes/10.1.0.5",
+                "rel": "self"
+              },
+              "rel": {
+                "href": "https://api-qual.netsec.rackspace.net/loadbalancers/433240/nodes",
+                "rel": "up"
+              }
+            },
+            "runtime_state": "DISABLED",
+            "label": "Node5",
+            "port_name": "http",
+            "limit": 200,
+            "admin_state": "ENABLED",
+            "address": "10.1.0.5",
+            "port_number": 80,
+            "id": "10.1.0.5",
+            "vendor_extensions": {}
+          },
+          {
+            "stats": {
+              "conn_max": 100,
+              "pkts_out": 4567,
+              "bytes_in": 1234,
+              "pkts_in": 3456,
+              "conn_tot": 200,
+              "conn_cur": 12,
+              "bytes_out": 2345
+            },
+            "health_strategy": {
+              "params": [
+                {
+                  "enabled": true
+                }
+              ],
+              "name": "FakeHealthMonitor"
+            },
+            "links": {
+              "self": {
+                "href": "https://api-qual.netsec.rackspace.net/loadbalancers/433240/nodes/10.1.0.6",
+                "rel": "self"
+              },
+              "rel": {
+                "href": "https://api-qual.netsec.rackspace.net/loadbalancers/433240/nodes",
+                "rel": "up"
+              }
+            },
+            "runtime_state": "ENABLED",
+            "label": "Node6",
+            "port_name": "http",
+            "limit": 200,
+            "admin_state": "DISABLED",
+            "address": "10.1.0.6",
+            "port_number": 80,
+            "id": "10.1.0.6",
+            "vendor_extensions": {}
+          }
+        ],
+        "links": {
+          "self": {
+            "href": "https://api-qual.netsec.rackspace.net/loadbalancers/433240/nodes",
+            "rel": "self"
+          },
+          "rel": {
+            "href": "https://api-qual.netsec.rackspace.net/loadbalancers/433240",
+            "rel": "up"
+          }
+        }
+      },
+      "id": "192.168.0.7/32:all",
+      "vendor_extensions": {
+        "fallback_persistence_profile": "source_addr",
+        "default_persistence_profile": "cookie",
+        "client_ssl_profile": "client_insecure_compatible",
+        "ruleset": "some rules go here - Type is TBD.",
+        "http_profile": "http_lan_optimized_caching"
+      },
+      "stats": {
+        "conn_max": 500,
+        "pkts_out": 6567,
+        "bytes_in": 40002,
+        "pkts_in": 8456,
+        "conn_tot": 2000,
+        "conn_cur": 1200,
+        "bytes_out": 65123
+      }
+    }
+  ]
+}
