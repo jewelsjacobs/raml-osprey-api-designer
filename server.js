@@ -16,15 +16,13 @@ var app = module.exports = express();
 
 /* Configure a simple logger and an error handler. */
 app.use(morgan('combined'));
-app.use(errorhandler());
-
 app.use(methodOverride());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
     extended: true
 }));
 app.use(express.static(__dirname + '/api-designer'));
-app.use(errorHandler({
+app.use(errorhandler({
     dumpExceptions: true,
     showStack: true
 }));
