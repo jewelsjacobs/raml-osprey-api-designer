@@ -1,22 +1,20 @@
 # RAML API DESIGNER
 
 ## What is this being used for?
+Front end app devs who wish to communicate to back end devs how they would like an application centric API schema to look like.
 
-Front End folks who wish to communicate to back end folks how they would like an application centric API schema to look like.
-
-No back end dev knowledge necessary.
+Back end devs who want to sketch out an API and test it without full development
 
 Easy API Designer based on the [RAML](http://raml.org/) spec with nice RAML documentation.
 
-![Screenshot](api-designer.png?raw=true "RAML API Designer Screen")
 ### API Designer
-![Screenshot](console.png?raw=true "API Console")
+![Screenshot](api-designer.png?raw=true "RAML API Designer Screen")
 ### API Console
-![Screenshot](console-detail.png?raw=true "API Console Detail")
+![Screenshot](console.png?raw=true "API Console")
 ### API Console Detail
+![Screenshot](console-detail.png?raw=true "API Console Detail")
 
 ## Using App
-
 You need to be on the OR Dev VPN to use the app since its on the QA server.
 You can use the app here:
 
