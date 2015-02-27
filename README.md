@@ -65,6 +65,7 @@ Start   - `sudo service raml start`
 Stop    - `sudo service raml stop`
 Status  - `sudo service raml status`
 Restart - `sudo service raml restart`
+```
 
 ## Testing the Service
 
@@ -72,9 +73,9 @@ Restart - `sudo service raml restart`
 $ curl -i -X POST -H 'Content-Type: application/json' -d 
 '{"name":"myfirstapi.raml","path":"/","contents":"#%25RAML%200.8%0Atitle:%20%20%20DONE!!!"}' 
 http://localhost:3000/files
-```
 
-`$ curl -i -X GET http://localhost:3000/files`
+$ curl -i -X GET http://localhost:3000/files
+```
 
 ## Coming soon
  - Generating faker mock data from RAML with [json-schema-processor](https://www.npmjs.org/package/json-schema-processor)
