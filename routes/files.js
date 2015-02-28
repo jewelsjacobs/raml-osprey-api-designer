@@ -6,7 +6,7 @@ var mongo = require('mongodb'),
   fakeIt = require('json-schema-processor'),
   BSON = mongo.BSONPure;
 
-var server = new Server('localhost', 27017, {auto_reconnect: true, safe:false});
+var server = new Server('localhost', 27017, {auto_reconnect: true, safe:true});
 db = new Db('ramldb', server);
 
 db.open(function (err, db) {
