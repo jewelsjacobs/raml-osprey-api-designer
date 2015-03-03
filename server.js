@@ -18,7 +18,7 @@ var app = module.exports = express();
 /* Configure a simple logger and an error handler. */
 app.use(morgan('combined'));
 app.use(methodOverride());
-app.use(bodyParser.json());
+app.use(bodyParser.json({limit: '5mb'}));
 app.use(express.static(__dirname + '/dist'));
 app.use(errorhandler({
     dumpExceptions: true,
