@@ -9,20 +9,11 @@ Easy API Designer based on the [RAML](http://raml.org/) spec with nice RAML docu
 
 ### API Designer
 ![Screenshot](api-designer.png?raw=true "RAML API Designer Screen")
-### API Console -> fixing (waiting on osprey update)
-![Screenshot](console.png?raw=true "API Console")
-### API Console Detail -> fixing (waiting on osprey update) 
-![Screenshot](console-detail.png?raw=true "API Console Detail")
 
 ## Using App
-You need to be on the OR Dev VPN to use the app since its on the QA server.
 You can use the app here:
 
-[API Designer: http://mon0.dev.objectrocket.com:8081](http://mon0.dev.objectrocket.com:8081)
-
-[API Console: http://mon0.dev.objectrocket.com:8081/api/console](http://mon0.dev.objectrocket.com:8081/api/console)
-
-[JSON: http://mon0.dev.objectrocket.com:8081/files](http://mon0.dev.objectrocket.com:8081/files)
+[API Designer: http://104.130.18.74:8081/](http://104.130.18.74:8081/)
 
 ## Overview
 
