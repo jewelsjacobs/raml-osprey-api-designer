@@ -1,0 +1,381 @@
+<!doctype html>
+<html role="api-designer">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>API Designer</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+
+    <!-- build:css({.,.tmp,app}) styles/api-designer-vendor.css -->
+    <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css">
+
+    <link rel="stylesheet" href="vendor/styles/codemirror.css">
+    <link rel="stylesheet" href="vendor/styles/solarized.css">
+    <link rel="stylesheet" href="vendor/styles/show-hint.css">
+
+    <link rel="stylesheet" href="bower_components/angular-ui-tree/dist/angular-ui-tree.min.css">
+
+    <link rel="stylesheet" href="bower_components/api-console/dist/styles/api-console-light-theme.css">
+    <!-- endbuild -->
+
+    <!-- build:css({.,.tmp,app}) styles/api-designer.css -->
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/shelf.css">
+    <link rel="stylesheet" href="styles/splitter.css">
+    <link rel="stylesheet" href="styles/errors.css">
+    <link rel="stylesheet" href="styles/file-browser.css">
+    <link rel="stylesheet" href="styles/code-mirror-overrides.css">
+    <link rel="stylesheet" href="styles/api-console-overrides.css">
+    <link rel="stylesheet" href="styles/font-awesome-overrides.css">
+    <link rel="stylesheet" href="styles/modal.css">
+    <link rel="stylesheet" href="styles/menubar.css">
+    <!-- endbuild -->
+  </head>
+  <body ng-app="ramlEditorApp">
+    <div class="container">
+        <raml-editor></raml-editor>
+    </div>
+
+    <!-- build:js({.,.tmp,app}) scripts/api-designer-vendor.js -->
+    <!--
+      jQuery has to go before AngularJS otherwise we'll end up with jqLite,
+      which isn't enough for API Console to work properly
+    -->
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/velocity/velocity.js"></script>
+
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <script src="bower_components/angular-ui-tree/dist/angular-ui-tree.js"></script>
+    <script src="bower_components/es5-shim/es5-shim.js"></script>
+
+    <script src="bower_components/raml-js-parser/dist/raml-parser.js"></script>
+    <script src="bower_components/raml-grammar/dist/suggest.js"></script>
+    <script src="bower_components/raml-object-to-raml/dist/raml-object-to-raml.js"></script>
+    <script src="bower_components/swagger-to-raml-object/dist/swagger-to-raml-object.js"></script>
+    <script src="bower_components/jszip/jszip.js"></script>
+    <script src="bower_components/jszip/jszip-load.js"></script>
+    <script src="bower_components/jszip/jszip-deflate.js"></script>
+    <script src="bower_components/jszip/jszip-inflate.js"></script>
+
+    <script src="bower_components/marked/lib/marked.js"></script>
+    <script src="bower_components/highlightjs/highlight.pack.js"></script>
+    <script src="bower_components/vkbeautify/vkbeautify.js"></script>
+    <script src="bower_components/crypto-js/rollups/hmac-sha1.js"></script>
+    <script src="bower_components/crypto-js/components/enc-base64.js"></script>
+    <script src="bower_components/codemirror/lib/codemirror.js"></script>
+    <script src="bower_components/codemirror/mode/javascript/javascript.js"></script>
+    <script src="bower_components/codemirror/mode/xml/xml.js"></script>
+    <script src="bower_components/codemirror/mode/yaml/yaml.js"></script>
+    <script src="bower_components/codemirror/addon/dialog/dialog.js"></script>
+    <script src="bower_components/codemirror/addon/search/search.js"></script>
+    <script src="bower_components/codemirror/addon/search/searchcursor.js"></script>
+    <script src="bower_components/codemirror/addon/lint/lint.js"></script>
+    <script src="bower_components/angular-ui-codemirror/ui-codemirror.js"></script>
+    <script src="bower_components/angular-marked/angular-marked.js"></script>
+    <script src="bower_components/angular-highlightjs/angular-highlightjs.js"></script>
+    <script src="bower_components/slug/slug.js"></script>
+    <script src="bower_components/FileSaver/FileSaver.js"></script>
+    <script src="bower_components/raml-client-generator/dist/raml-client-generator.js"></script>
+    <script src="bower_components/api-console/dist/scripts/api-console.js"></script>
+    <!-- endbuild -->
+
+    <!-- build:js({.,.tmp,app}) scripts/api-designer.js -->
+    <script src="vendor/scripts/codemirror.js"></script>
+    <script src="vendor/scripts/foldcode.js"></script>
+    <script src="vendor/scripts/foldgutter.js"></script>
+    <script src="vendor/scripts/gfm.js"></script>
+    <script src="vendor/scripts/javascript.js"></script>
+    <script src="vendor/scripts/markdown.js"></script>
+    <script src="vendor/scripts/overlay.js"></script>
+    <script src="vendor/scripts/show-hint.js"></script>
+    <script src="vendor/scripts/xml.js"></script>
+
+    <script src="scripts/app.js"></script>
+    <script src="scripts/services/utils.js"></script>
+    <script src="scripts/services/config.js"></script>
+    <script src="scripts/services/lightweight-dom.js"></script>
+    <script src="scripts/services/lightweight-parse.js"></script>
+    <script src="scripts/services/code-folding.js"></script>
+    <script src="scripts/services/code-mirror.js"></script>
+    <script src="scripts/services/code-mirror-errors.js"></script>
+    <script src="scripts/services/raml-hint.js"></script>
+    <script src="scripts/services/raml-snippets.js"></script>
+    <script src="scripts/services/raml-highlight.js"></script>
+    <script src="scripts/services/raml-highlight-config.js"></script>
+    <script src="scripts/services/raml-repository.js"></script>
+    <script src="scripts/services/file-system.js"></script>
+    <script src="scripts/services/new-file-service.js"></script>
+    <script src="scripts/services/new-folder-service.js"></script>
+    <script src="scripts/services/local-storage-file-system.js"></script>
+    <script src="scripts/services/mocking-service-client.js"></script>
+    <script src="scripts/services/mocking-service.js"></script>
+    <script src="scripts/services/import-modal.js"></script>
+    <script src="scripts/services/confirm-modal.js"></script>
+    <script src="scripts/services/new-name-modal.js"></script>
+    <script src="scripts/services/swagger-to-raml.js"></script>
+    <script src="scripts/services/import-service.js"></script>
+    <script src="scripts/services/import-service-conflict-modal.js"></script>
+    <script src="scripts/filters/string-filters.js"></script>
+    <script src="scripts/controllers/raml-editor-main.js"></script>
+    <script src="scripts/controllers/raml-editor-shelf.js"></script>
+    <script src="scripts/controllers/notifications.js"></script>
+    <script src="scripts/controllers/mocking-service-controller.js"></script>
+    <script src="scripts/directives/splitter.js"></script>
+    <script src="scripts/directives/validate.js"></script>
+    <script src="scripts/directives/auto-focus.js"></script>
+    <script src="scripts/directives/right-click.js"></script>
+    <script src="scripts/directives/raml-editor.js"></script>
+    <script src="scripts/directives/drag-and-drop.js"></script>
+    <script src="scripts/directives/raml-editor-context-menu.js"></script>
+    <script src="scripts/directives/raml-editor-file-browser.js"></script>
+    <script src="scripts/directives/raml-editor-save-file-button.js"></script>
+    <script src="scripts/directives/raml-editor-new-folder-button.js"></script>
+    <script src="scripts/directives/raml-editor-new-file-button.js"></script>
+    <script src="scripts/directives/raml-editor-export-files-button.js"></script>
+    <script src="scripts/directives/raml-editor-import-button.js"></script>
+    <script src="scripts/directives/ui-tree-node.js"></script>
+    <!-- endbuild -->
+
+    <script>
+      angular.module('ramlEditorApp')
+        .run(function () {
+          // Disable proxying HTTP requests
+          RAML.Settings.proxy = false;
+        })
+        .factory('MyFileSystem', function ($http, $q, config, $rootScope) {
+
+//angular.module('fs')
+//  .constant('API_PERSISTENCE_KEY','apiStorageFilePersistence')
+//  .constant('FOLDER', 'folder')
+//  .factory('apiStorageFileSystem', function ($http, $q, $timeout, localStorageHelper, FOLDER) {
+
+          var files = {};
+
+          /**
+           *
+           * Save in localStorage entries.
+           *
+           * File structure are objects that contain the following attributes:
+           * * path: The full path (including the filename).
+           * * content: The content of the file (only valid for files).
+           * * isFolder: A flag that indicates whether is a folder or file.
+           */
+          var service = {};
+
+          var url = "/files/";
+
+          function validatePath(path) {
+            if (path.indexOf('/') !== 0) {
+              return {valid: false, reason: 'Path should start with "/"'};
+            }
+            return {valid: true};
+          }
+
+          function extractNameFromPath(path) {
+            var pathInfo = validatePath(path);
+
+            if (!pathInfo.valid) {
+              throw 'Invalid Path!';
+            }
+
+            // When the path is ended in '/'
+            if (path.lastIndexOf('/') === path.length - 1) {
+              path = path.slice(0, path.length - 1);
+            }
+
+            return path.slice(path.lastIndexOf('/') + 1);
+          }
+
+          /**
+           * List files found in a given path.
+           */
+          service.directory = function () {
+            var deferred = $q.defer();
+
+            $http({
+              method: 'GET',
+              data: '',
+              url: url,
+              withCredentials: false
+            }).success(function (data) {
+              var ramlFiles = [];
+              Object.keys(data).forEach(function (id) {
+                files[data[id].path] = id;
+                ramlFiles.push({path: data[id].path, content: decodeURI(data[id].content)});
+              });
+
+              deferred.resolve({path: '/', meta: {}, children: ramlFiles});
+            })
+              .error(deferred.reject.bind(deferred));
+
+            return deferred.promise;
+          };
+
+          service.save = function (path, content) {
+
+            var deferred = $q.defer();
+            var file = {};
+            var fileId = files[path];
+
+            file.path = path;
+            file.content = encodeURI(content);
+            file.name = extractNameFromPath(path);
+            file.type = 'file';
+            file.lastUpdated = new Date();
+
+            // Existing file
+            if (fileId) {
+              $http({
+                method: 'PUT',
+                data: JSON.stringify(file),
+                url: url + fileId,
+                withCredentials: false
+              }).success(deferred.resolve.bind(deferred))
+                .error(deferred.reject.bind(deferred));
+            }
+            // New File
+            else {
+              var newName = extractNameFromPath(path);
+              var dateCourante = new Date();
+
+              file = {
+                path: path,
+                name: newName,
+                content: encodeURI(content),
+                type: 'file',
+                lastUpdated: dateCourante
+              };
+
+              $http({
+                method: 'POST',
+                data: JSON.stringify(file),
+                url: url,
+                withCredentials: false
+              }).success(function (data) {
+                files[path] = data._id;
+                deferred.resolve();
+              })
+                .error(deferred.reject.bind(deferred));
+            }
+
+            return deferred.promise;
+          };
+
+          /**
+           * Create the folders contained in a path.
+           */
+          service.createFolder = function (path) {
+            var deferred = $q.defer();
+            var file = {};
+
+            file.path = path;
+            file.name = extractNameFromPath(path);
+            file.type = 'folder';
+            file.lastUpdated = new Date();
+
+            //  We dont manage already existing folders
+            $http({
+              method: 'POST',
+              data: JSON.stringify(file),
+              url: url,
+              withCredentials: false
+            }).success(function (data) {
+              files[path] = data._id;
+              deferred.resolve();
+            })
+              .error(deferred.reject.bind(deferred));
+
+            return deferred.promise;
+          };
+
+          /**
+           * Loads the content of a file.
+           */
+          service.load = function (path) {
+            var deferred = $q.defer();
+
+            $http({
+              method: 'GET',
+              data: '',
+              url: url + files[path],
+              withCredentials: false
+            }).success(function (data) {
+              deferred.resolve(decodeURI(data.content));
+            })
+              .error(deferred.reject.bind(deferred));
+            //.error(deferred.reject(fileNotFoundInStoreMessage(path)));
+
+            return deferred.promise;
+          };
+
+          /**
+           * Removes a file or directory.
+           */
+          service.remove = function (path) {
+            var deferred = $q.defer();
+
+            if (!files[path]) {
+              deferred.reject('file at path "' + path + '" does not exist');
+              return deferred.promise;
+            }
+
+            $http({
+              method: 'DELETE',
+              data: '',
+              url: url + files[path],
+              withCredentials: false
+            }).success(function () {
+              delete files[path];
+              deferred.resolve();
+            })
+              .error(deferred.reject.bind(deferred));
+
+            return deferred.promise;
+          };
+
+          /**
+           * Ranames a file or directory
+           */
+          service.rename = function (source, destination) {
+
+            var promise = service.load(source).then(function (retour) {
+              // on enregistre le nouveau fichier
+              var newType = 'file';
+              var newName = extractNameFromPath(destination);
+              return service.save(destination, retour, newName, newType);
+            }, function (reason) {
+              // Error in any request
+              return $q.reject(reason);
+            }).then(function () {
+              // on supprime l'ancien fichier
+              return service.remove(source);
+            }, function(reason) {
+              console.log('Failed: ' + reason);
+            });
+
+            return promise;
+          };
+
+          return service;
+        })
+        .run(function (MyFileSystem, config, $rootScope) {
+          // Set MyFileSystem as the filesystem to use
+          config.set('fsFactory', 'MyFileSystem');
+
+          // In case you want to send notifications to the user
+          // (for instance, that he must login to save).
+          // The expires flags means whether
+          // it should be hidden after a period of time or the
+          // user should dismiss it manually.
+          $rootScope.$broadcast('event:notification',
+            {message: 'File saved.', expires: true});
+
+        });
+
+    </script>
+
+
+  </body>
+</html>

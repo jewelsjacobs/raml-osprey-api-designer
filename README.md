@@ -9,9 +9,9 @@ Easy API Designer based on the [RAML](http://raml.org/) spec with nice RAML docu
 
 ### API Designer
 ![Screenshot](api-designer.png?raw=true "RAML API Designer Screen")
-### API Console
+### API Console -> fixing (waiting on osprey update)
 ![Screenshot](console.png?raw=true "API Console")
-### API Console Detail
+### API Console Detail -> fixing (waiting on osprey update) 
 ![Screenshot](console-detail.png?raw=true "API Console Detail")
 
 ## Using App
@@ -47,10 +47,44 @@ To start mongodb as background process:
 
 `mongod --fork --logpath /var/log/mongodb.log`
 
-### Installing Express and MongoDB Node.js Driver
-From the top-level directory (e.g. raml-store):
+## Build and Run
 
-`npm install `
+Install global tools
+```
+npm install -g grunt-cli
+npm install -g bower
+npm install -g karma # Optional for running the test suite
+```
+
+Install node modules
+```
+npm install 
+```
+
+Install bower modules
+```
+bower install
+```
+
+Install webdriver required to run `localScenario` task
+```
+node_modules/grunt-protractor-runner/node_modules/protractor/bin/webdriver-manager update
+```
+
+Run the application locally
+```
+grunt server
+```
+
+Run the test suite
+```
+grunt test
+```
+
+Build the application
+```
+grunt
+```
 
 # Server info
 
@@ -77,11 +111,12 @@ $ curl -i -X GET http://localhost:8081/files
 
 ## Hacking the app
 
-This is a bit complicated because its kind of an ugly mashup of two existing apps [RAML API Designer](https://github.com/mulesoft/api-designer) and [osprey](https://github.com/mulesoft/osprey).
+To hack the front end, look at the instructions here:
+[RAML API Designer](https://github.com/mulesoft/api-designer).
 
-You'll have to fork / hack those two apps individually and then build them separately and then mash them up again :(
+The front end code is all in there except for the `server.js` and `/routes` file(s) / folder.
 
-At some point I hope to make this an easier process.
+The app uses [osprey](https://github.com/mulesoft/osprey) to serve the example json as mock data.
 
 ## Coming soon
  - Generating faker mock data from RAML with [json-schema-processor](https://www.npmjs.org/package/json-schema-processor)

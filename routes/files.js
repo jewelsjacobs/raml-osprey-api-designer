@@ -68,7 +68,7 @@ exports.findAll = function (req, res) {
           fileList[item._id] = item;
           delete fileList[item._id]._id;
           console.log(item.name);
-          fs.writeFile(path.join(__dirname, '../api-designer/assets/' + item.name), decodeURIComponent(item.content), function(err) {
+          fs.writeFile(path.join(__dirname, '../dist/assets/' + item.name), decodeURIComponent(item.content), function(err) {
             if(err) {
               console.log(err);
             } else {
@@ -96,7 +96,7 @@ exports.addFile = function (req, res) {
         res.send({'error': 'An error has occurred'});
       } else {
         console.log(file, result);
-        fs.writeFile(path.join(__dirname, '../api-designer/assets/' + file.name), decodeURIComponent(file.content), function(err) {
+        fs.writeFile(path.join(__dirname, '../dist/assets/' + file.name), decodeURIComponent(file.content), function(err) {
           if(err) {
             console.log(err);
           } else {
@@ -125,7 +125,7 @@ exports.updateFile = function (req, res) {
         res.send({'error': 'An error has occurred'});
       } else {
         console.log('' + result + ' document(s) updated');
-        fs.writeFile(path.join(__dirname, '../api-designer/assets/' + file.name), decodeURIComponent(file.content), function(err) {
+        fs.writeFile(path.join(__dirname, '../dist/assets/' + file.name), decodeURIComponent(file.content), function(err) {
           if(err) {
             console.log(err);
           } else {
@@ -147,7 +147,7 @@ exports.deleteFile = function (req, res) {
       if (err) {
         console.log(err);
       } else {
-        fs.unlink(path.join(__dirname, '../api-designer/assets/' + item.name), function(err){
+        fs.unlink(path.join(__dirname, '../dist/assets/' + item.name), function(err){
           if (err) {
             console.log('Error deleting file : ' + item.name + ' ' + err);
           } else {

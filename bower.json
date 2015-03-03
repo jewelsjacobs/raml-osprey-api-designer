@@ -1,0 +1,26 @@
+{
+  "name": "api-designer",
+  "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mulesoft/api-designer.git"
+  },
+  "license": "CPAL 1.0",
+  "dependencies": {
+    "angular": "~1.2.16",
+    "angular-bootstrap": "~0.11.0",
+    "angular-ui-tree": "2.1.5",
+    "api-console": "mulesoft/api-console#cbd9b571e2cfcea2eea4672d8fdb6e89c16ba535",
+    "es5-shim": "~2.3.0",
+    "font-awesome": "~4.0.3",
+    "raml-grammar": "mulesoft/raml-grammar#cfc1e2bf2d0f7796848294dde61e821a52204a3d",
+    "raml-js-parser": "raml-org/raml-js-parser#3d7f702b618a99afcc56f85deb4693921af8bbe5",
+    "raml-object-to-raml": "mulesoft/raml-object-to-raml#33ff487f7a3ec27c82e109e09f89017eb9fa3cd1",
+    "swagger-to-raml-object": "mulesoft/swagger-to-raml-object#44897d92f0cc7c0a51a736bc8d45b2d35cfb2559",
+    "jszip": "~2.0.0"
+  },
+  "devDependencies": {
+    "angular-mocks": "~1.2.16",
+    "sinonjs": "~1.7.1"
+  }
+}

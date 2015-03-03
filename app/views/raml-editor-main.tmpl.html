@@ -1,0 +1,70 @@
+<div role="raml-editor" class="{{theme}}">
+  <div role="notifications" ng-controller="notifications" class="hidden" ng-class="{hidden: !shouldDisplayNotifications, error: level === 'error'}">
+    {{message}}
+    <i class="fa" ng-class="{'fa-check': level === 'info', 'fa-warning': level === 'error'}" ng-click="hideNotifications()"></i>
+  </div>
+
+  <header>
+    <h1>
+      <strong>API</strong> Designer
+    </h1>
+
+    <a role="logo" target="_blank" href="http://mulesoft.com"></a>
+  </header>
+
+  <ul class="menubar">
+    <li class="menu-item menu-item-ll">
+      <raml-editor-new-file-button></raml-editor-new-file-button>
+    </li>
+    <li ng-show="supportsFolders" class="menu-item menu-item-ll">
+      <raml-editor-new-folder-button></raml-editor-new-folder-button>
+    </li>
+    <li class="menu-item menu-item-ll">
+      <raml-editor-save-file-button></raml-editor-save-file-button>
+    </li>
+    <li class="menu-item menu-item-ll">
+      <raml-editor-import-button></raml-editor-import-button>
+    </li>
+    <li ng-show="canExportFiles()" class="menu-item menu-item-ll">
+      <raml-editor-export-files-button></raml-editor-export-files-button>
+    </li>
+    <li class="spacer file-absolute-path">{{getSelectedFileAbsolutePath()}}</li>
+    <li class="menu-item menu-item-fr menu-item-mocking-service" ng-show="getIsMockingServiceVisible()" ng-controller="mockingServiceController" ng-click="toggleMockingService()">
+      <div class="title">Mocking Service</div>
+      <div class="field-wrapper" ng-class="{loading: loading}">
+        <i class="fa fa-spin fa-spinner" ng-if="loading"></i>
+        <div class="field" ng-if="!loading">
+          <input type="checkbox" value="None" id="mockingServiceEnabled" ng-checked="enabled" ng-click="$event.preventDefault()" />
+          <label for="mockingServiceEnabled"></label>
+        </div>
+      </div>
+    </li>
+    <li class="menu-item menu-item-fr" ng-click="openHelp()">
+      <span><i class="fa fa-question-circle"></i> Help</span>
+    </li>
+  </ul>
+
+  <div role="flexColumns">
+    <raml-editor-file-browser role="browser"></raml-editor-file-browser>
+
+    <div id="browserAndEditor" ng-splitter="vertical" ng-splitter-collapse-target="prev"><div class="split split-left">&nbsp;</div></div>
+
+    <div role="editor" ng-class="{error: currentError}">
+      <div id="code" role="code"></div>
+
+      <div role="shelf" ng-show="getIsShelfVisible()" ng-class="{expanded: !shelf.collapsed}">
+        <div role="shelf-tab" ng-click="toggleShelf()">
+          <i class="fa fa-inbox fa-lg"></i><i class="fa" ng-class="shelf.collapsed ? 'fa-caret-up' : 'fa-caret-down'"></i>
+        </div>
+
+        <div role="shelf-container" ng-show="!shelf.collapsed" ng-include src="'views/raml-editor-shelf.tmpl.html'"></div>
+      </div>
+    </div>
+
+    <div id="consoleAndEditor" ng-show="getIsConsoleVisible()" ng-splitter="vertical" ng-splitter-collapse-target="next" ng-splitter-min-width="470"><div class="split split-right">&nbsp;</div></div>
+
+    <div ng-show="getIsConsoleVisible()" role="preview-wrapper" class="raml-console-embedded">
+      <raml-console single-view disable-theme-switcher disable-raml-client-generator disable-title style="padding: 0; margin-top: 0;"></raml-console>
+    </div>
+  </div>
+</div>
