@@ -14,16 +14,6 @@ Easy API Designer based on the [RAML](http://raml.org/) spec with nice RAML docu
 ### API Console Detail -> fixing (waiting on osprey update) 
 ![Screenshot](console-detail.png?raw=true "API Console Detail")
 
-## Using App
-You need to be on the OR Dev VPN to use the app since its on the QA server.
-You can use the app here:
-
-[API Designer: http://mon0.dev.objectrocket.com:8081](http://mon0.dev.objectrocket.com:8081)
-
-[API Console: http://mon0.dev.objectrocket.com:8081/api/console](http://mon0.dev.objectrocket.com:8081/api/console)
-
-[JSON: http://mon0.dev.objectrocket.com:8081/files](http://mon0.dev.objectrocket.com:8081/files)
-
 ## Overview
 
 This application provides a simple storage API plus a persistence plugin which enables you to run the [RAML API Designer](https://github.com/mulesoft/api-designer) locally (rather than use the APIHub cloud service) and still be able to manage and collaborate on your design.
@@ -104,9 +94,9 @@ Restart - `sudo service raml restart`
 ```
 $ curl -i -X POST -H 'Content-Type: application/json' -d 
 '{"name":"myfirstapi.raml","path":"/","contents":"#%25RAML%200.8%0Atitle:%20%20%20DONE!!!"}' 
-http://localhost:8081/files
+http://localhost:3000/files
 
-$ curl -i -X GET http://localhost:8081/files
+$ curl -i -X GET http://localhost:3000/files
 ```
 
 ## Hacking the app
