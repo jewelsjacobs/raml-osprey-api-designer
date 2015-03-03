@@ -11,7 +11,7 @@ var express = require('express'),
     methodOverride = require('method-override'),
     parser = require('raml-parser'),
     errorhandler = require('errorhandler'),
-    port = parseInt(process.env.PORT, 10) || 3000;
+    port = parseInt(process.env.PORT, 10) || 8081;
 
 var app = module.exports = express();
 
