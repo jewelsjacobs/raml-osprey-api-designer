@@ -116,3 +116,5 @@ The app uses [osprey](https://github.com/mulesoft/osprey) to serve the example j
  - Export files
 
  Other fancy stuff
+ 
+ [![Support via Gratipay](https://cdn.rawgit.com/gratipay/gratipay-badge/2.3.0/dist/gratipay.png)](https://gratipay.com/jewelsjacobs/)
