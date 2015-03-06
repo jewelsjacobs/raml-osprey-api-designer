@@ -6,14 +6,20 @@ Front end app devs who wish to communicate to back end devs how they would like 
 Back end devs who want to sketch out an API and test it without full development
 
 Easy API Designer based on the [RAML](http://raml.org/) spec with nice RAML documentation.
+The documentation can be found by the name of the RAML file created, ie. if the RAML file is `api.raml`, the documentation will be found at http://localhost:8081/documentation/api.
+
+Documentation is generated with [raml2html](https://github.com/kevinrenskers/raml2html).
 
 ### API Designer
 ![Screenshot](api-designer.png?raw=true "RAML API Designer Screen")
+### API Documentation
+![Doc](doc.png?raw=true "RAML API Documentation Screen")
+![Doc-Detail](doc-detail.png?raw=true "RAML API Documentation Detail Screen")
 
 ## Using App
 You can use the app here:
-
 [API Designer: http://104.130.18.74:8081/](http://104.130.18.74:8081/)
+[API Documenation: http://104.130.18.74:8081/documentation/api](http://104.130.18.74:8081/documentation/api)
 
 ## Overview
 
@@ -110,10 +116,6 @@ The front end code is all in there except for the `server.js` and `/routes` file
 The app uses [osprey](https://github.com/mulesoft/osprey) to serve the example json as mock data.
 
 ## Coming soon
- - Generating faker mock data from RAML with [json-schema-processor](https://www.npmjs.org/package/json-schema-processor)
- - Decent docs
  - Decent CRUD services for mock data
  - Support for multiple projects
  - Export files
-
- Other fancy stuff
