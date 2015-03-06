@@ -109,7 +109,7 @@ To hack the front end, look at the instructions here:
 
 The front end code is all in there except for the `server.js` and `/routes` file(s) / folder.
 
-The app uses [osprey](https://github.com/mulesoft/osprey) to serve the example json as mock data.
+The app uses [osprey](https://github.com/mulesoft/osprey) to serve the example json as mock data. **Not Available Yet**
 
 ## Coming soon
  - Decent CRUD services for mock data
