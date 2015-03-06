@@ -14,12 +14,13 @@ Documentation is generated with [raml2html](https://github.com/kevinrenskers/ram
 ![Screenshot](api-designer.png?raw=true "RAML API Designer Screen")
 ### API Documentation
 ![Doc](doc.png?raw=true "RAML API Documentation Screen")
+### API Documentation Detail
 ![Doc-Detail](doc-detail.png?raw=true "RAML API Documentation Detail Screen")
 
 ## Using App
 You can use the app here:
-[API Designer: http://104.130.18.74:8081/](http://104.130.18.74:8081/)
-[API Documenation: http://104.130.18.74:8081/documentation/api](http://104.130.18.74:8081/documentation/api)
+- [API Designer](http://104.130.18.74:8081/)
+- [API Documentation](http://104.130.18.74:8081/documentation/api)
 
 ## Overview
 
