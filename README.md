@@ -17,11 +17,6 @@ Documentation is generated with [raml2html](https://github.com/kevinrenskers/ram
 ### API Documentation Detail
 ![Doc-Detail](doc-detail.png?raw=true "RAML API Documentation Detail Screen")
 
-## Using App
-You can use the app here:
-- [API Designer](http://104.130.18.74:8081/)
-- [API Documentation](http://104.130.18.74:8081/documentation/api)
-
 ## Overview
 
 This application provides a simple storage API plus a persistence plugin which enables you to run the [RAML API Designer](https://github.com/mulesoft/api-designer) locally (rather than use the APIHub cloud service) and still be able to manage and collaborate on your design.
