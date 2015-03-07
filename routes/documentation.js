@@ -2,7 +2,7 @@ var fs = require('fs'),
   path = require('path'),
   async = require('async'),
   raml2html = require('raml2html'),
-  osprey = require('osprey'),
+  //osprey = require('osprey'),
   _ = require('lodash'),
   mongoDbConnection = require('./db.js');
 
@@ -82,7 +82,7 @@ exports.get = function (req, res) {
                    * @TODO Osprey isn't ready for prime time
                    */
                   parser.loadFile(assetsPath).then( function(data) {
-                    app.use(osprey.createServer(data));
+                    //app.use(osprey.createServer(data));
                   }, function(error) {
                     console.log('Error parsing: ' + error);
                   });

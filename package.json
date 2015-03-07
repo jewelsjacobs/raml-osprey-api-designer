@@ -13,7 +13,6 @@
     "method-override": "^2.3.1",
     "mongodb": "1.x",
     "morgan": "^1.5.1",
-    "osprey": "git://github.com/mulesoft/osprey",
     "raml-parser": "^0.8.10",
     "raml2html": "^1.4.0"
   },
