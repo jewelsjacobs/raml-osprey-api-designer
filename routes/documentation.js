@@ -2,6 +2,7 @@ var fs = require('fs'),
   path = require('path'),
   async = require('async'),
   raml2html = require('raml2html'),
+  osprey = require('osprey'),
   _ = require('lodash'),
   mongoDbConnection = require('./db.js');
 
@@ -80,11 +81,11 @@ exports.get = function (req, res) {
                    * Create Mock Data With Osprey
                    * @TODO Osprey isn't ready for prime time
                    */
-                  //parser.loadFile(assetsPath).then( function(data) {
-                  //  app.use(osprey.createServer(data));
-                  //}, function(error) {
-                  //  console.log('Error parsing: ' + error);
-                  //});
+                  parser.loadFile(assetsPath).then( function(data) {
+                    app.use(osprey.createServer(data));
+                  }, function(error) {
+                    console.log('Error parsing: ' + error);
+                  });
                 }
               });
             }
