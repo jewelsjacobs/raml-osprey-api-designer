@@ -7,7 +7,6 @@ var express = require('express'),
     morgan  = require('morgan'),
     bodyParser = require('body-parser'),
     methodOverride = require('method-override'),
-    parser = require('raml-parser'),
     errorhandler = require('errorhandler'),
     port = parseInt(process.env.PORT, 10) || 8081;
 
