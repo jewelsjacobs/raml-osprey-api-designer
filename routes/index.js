@@ -8,7 +8,6 @@
 
 var fs = require("fs");
 var mongoDbConnection = require('./db.js');
-var assets = require('./assets');
 var path = require("path");
 
 /**
@@ -29,9 +28,9 @@ exports.index = function(req, res) {
       });
     });
   });
-  assets.dumpFiles().then(function(fileList){
-    res.sendfile(path.join(__dirname, '../dist/index.html'));
-  });
+
+  res.sendfile(path.join(__dirname, '../dist/index.html'));
+
 };
 
 /*--------------------------------------------------------------------------------------------------------------------*/
