@@ -16,3 +16,4 @@ app/styles/*.css
 dist/assets/*
 app/styles/css
 scenario/Sauce-Connect-latest
+documentation
