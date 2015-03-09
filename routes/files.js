@@ -2,59 +2,65 @@ var mongo = require('mongodb'),
   fs = require('fs'),
   path = require('path'),
   BSON = mongo.BSONPure,
+  utils = require('./utils'),
+  _ = require('lodash'),
   mongoDbConnection = require('./db.js');
 
+/**
+ * Find file object in collection by file id
+ * @param req
+ * @param res
+ */
 exports.findById = function (req, res) {
-  var id = req.params.id;
-  if (id != 'undefined') {
-    console.log('Retrieving file: ' + id);
-    mongoDbConnection(function (db) {
+  mongoDbConnection(function (db) {
+    if (req.params.id != 'undefined') {
       db.collection('files', function (err, collection) {
-        collection.findOne({'_id': new BSON.ObjectID(id)}, function (err, item) {
-          delete item._id;
-          res.header("Access-Control-Allow-Origin", "*");
-          res.send(item);
+        collection.findOne({'_id': new BSON.ObjectID(req.params.id)}, function (err, item) {
+            delete item._id;
+            res.header("Access-Control-Allow-Origin", "*");
+            res.send(item);
         });
       });
-    });
-  }
+    }
+  });
 };
 
+/**
+ * Find file content from file object in collection
+ * by file name
+ * @param req
+ * @param res
+ */
 exports.findContentByName = function (req, res) {
-  var name = req.params.name;
-  console.log('Retrieving file contents: ' + name);
   mongoDbConnection(function (db) {
     db.collection('files', function (err, collection) {
-      collection.findOne({'name': name}, function (err, item) {
+      collection.findOne({'name': req.params.name}, function (err, item) {
         delete item._id;
-        console.log(decodeURIComponent(item.content));
-        if (err) {
-          sendError(err, 'Error adding file');
-        } else {
-          res.header("Access-Control-Allow-Origin", "*");
-          res.send(decodeURIComponent(item.content))
-        }
+        if (err) res.send({'error': err});
+        res.header("Access-Control-Allow-Origin", "*");
+        res.send(decodeURIComponent(item.content))
       });
     });
   });
 };
 
+/**
+ * Find all of the files
+ * @param req
+ * @param res
+ */
 exports.findAll = function (req, res) {
-  var fileList = new Object();
+  var fileList = {};
   mongoDbConnection(function (db) {
     db.collection('files', function (err, collection) {
       collection.find({}, function (err, resultCursor) {
         resultCursor.each(function (err, item) {
-          if (item != null) {
-            console.log('Item : ' + item._id + ' : ' + JSON.stringify(item));
-            fileList[item._id] = item;
-            delete fileList[item._id]._id;
-            console.log(item.name);
-            console.log(JSON.stringify(fileList));
-          }
-          else {
+          if (_.isNull(item)) {
             res.header("Access-Control-Allow-Origin", "*");
             res.send(JSON.stringify(fileList));
+          } else {
+            fileList[item._id] = item;
+            delete fileList[item._id]._id;
           }
         });
       });
@@ -62,94 +68,65 @@ exports.findAll = function (req, res) {
   });
 };
 
+/**
+ * Add file to collection and write to asset directory
+ * @param req
+ * @param res
+ */
 exports.addFile = function (req, res) {
-  var file = req.body;
-  console.log('Adding file : ' + JSON.stringify(file));
   mongoDbConnection(function (db) {
     db.collection('files', function (err, collection) {
-      collection.insert(file, {safe: true}, function (err, result) {
-        if (err) {
-          sendError(err, 'Error adding file');
-        } else {
-          console.log(file, result);
-          fs.writeFile(path.join(__dirname, '../dist/assets/' + file.name), decodeURIComponent(file.content), function(err) {
-            if(err) {
-              console.log(err);
-            } else {
-              console.log(file.name + " was saved");
-            }
-          });
-          console.log('Success: ' + JSON.stringify(result[0]));
-          res.header("Access-Control-Allow-Origin", "*");
-          res.send(result[0]);
-        }
+      collection.insert(req.body, {safe: true}, function (err, result) {
+        fs.writeFileSync(utils.paths.assets + req.body.name, decodeURIComponent(req.body.content));
+        if (err) res.send({'error': err});
+        res.header("Access-Control-Allow-Origin", "*");
+        res.send(result[0]);
       });
     });
   });
 };
 
+/**
+ * Update file in collection and asset directory
+ * @param req
+ * @param res
+ */
 exports.updateFile = function (req, res) {
-  var id = req.params.id;
-  var file = req.body;
-  console.log('Updating file: ' + id);
-  console.log(JSON.stringify(file));
   mongoDbConnection(function (db) {
     db.collection('files', function (err, collection) {
-      collection.update({'_id': new BSON.ObjectID(id)}, file, {safe: true}, function (err, result) {
-        console.log(file)
-        if (err) {
-          sendError(err, 'Error updating file');
-        } else {
-          console.log('' + result + ' document(s) updated');
-          fs.writeFile(path.join(__dirname, '../dist/assets/' + file.name), decodeURIComponent(file.content), function(err) {
-            if(err) {
-              console.log(err);
-            } else {
-              console.log(file.name + " was saved");
-            }
-          });
-          res.header("Access-Control-Allow-Origin", "*");
-          res.send('{"status":"success","id":"' + id + '","message":"The file was successfully updated."}');
-        }
+      collection.update({'_id': new BSON.ObjectID(req.params.id)}, req.body, {safe: true}, function (err, result) {
+        fs.writeFileSync(utils.paths.assets + req.body.name, decodeURIComponent(req.body.content));
+        res.header("Access-Control-Allow-Origin", "*");
+        res.send(
+          '{"status":"success","id":"' +
+          req.params.id +
+          '","message":"The file was successfully updated."}'
+        );
       });
     });
   });
 };
 
+/**
+ * Delete file in collection and asset directory
+ * @param req
+ * @param res
+ */
 exports.deleteFile = function (req, res) {
-  var id = req.params.id;
-  console.log('Deleting file: ' + id);
   mongoDbConnection(function (db) {
     db.collection('files', function (err, collection) {
-      collection.findOne({'_id': new BSON.ObjectID(id)}, function (err, item) {
-        if (err) {
-          console.log(err);
-        } else {
-          fs.unlink(path.join(__dirname, '../dist/assets/' + item.name), function(err){
-            if (err) {
-              console.log('Error deleting file : ' + item.name + ' ' + err);
-            } else {
-              console.log('Successfully deleted ' + item.name);
-            }
-          });
-        }
+      collection.findOne({'_id': new BSON.ObjectID(req.params.id)}, function (err, item) {
+        fs.unlinkSync(utils.paths.assets + file.name);
       });
-      collection.remove({'_id': new BSON.ObjectID(id)}, {safe: true}, function (err, result) {
-        if (err) {
-          res.send({'error': 'An error has occurred - ' + err});
-        } else {
-          console.log(req.body);
-          res.send(req.body);
+      collection.remove(
+        {'_id': new BSON.ObjectID(req.params.id)},
+        {safe: true},
+        function (err, result) {
+          (err) ? res.send({'error': err}) : res.send(req.body);
         }
-      });
+      );
     });
   });
-};
-
-var sendError = function(err, msg) {
-  var msg = msg || "An error has occured: ";
-  console.log(msg + err);
-  res.send({'error': msg + err});
 };
 
 

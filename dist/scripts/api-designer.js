@@ -9065,6 +9065,7 @@ if (!CodeMirror.mimeModes.hasOwnProperty('text/html'))
     'ui.bootstrap.modal',
     'ui.bootstrap.tpls',
     'ui.tree',
+    'angularSpinner',
     'ramlConsoleApp',
     'codeMirror',
     'fs',

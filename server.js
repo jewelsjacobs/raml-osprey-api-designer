@@ -1,6 +1,7 @@
 var express = require('express'),
     files = require('./routes/files'),
-    documentation = require('./routes/documentation'),
+    docs = require('./routes/docs'),
+    mock = require('./routes/mock'),
     path = require('path'),
     fs = require('fs'),
     routes = require('./routes/'),
@@ -8,10 +9,10 @@ var express = require('express'),
     bodyParser = require('body-parser'),
     methodOverride = require('method-override'),
     errorhandler = require('errorhandler'),
+    utils = require('./routes/utils.js'),
     port = parseInt(process.env.PORT, 10) || 8081;
 
 var app = module.exports = express();
-
 
 /* Configure a simple logger and an error handler. */
 app.use(morgan('combined'));
@@ -54,9 +55,12 @@ app.post('/files', files.addFile);
 app.put('/files/:id', files.updateFile);
 app.delete('/files/:id', files.deleteFile);
 app.get('/files/name/:name', files.findContentByName);
-app.get('/documentation/:name', documentation.get);
+app.get('/documentation/:name', docs.get);
+app.get('/mock/:name', mock.get);
 
 app.get('/', routes.index);
 
-app.listen(port);
-console.log('Listening on port ' + port);
+app.listen(port, function (){
+  utils.writeFilesToDir();
+  console.log('Listening on port ' + port);
+});

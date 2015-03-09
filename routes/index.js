@@ -22,7 +22,6 @@ exports.index = function(req, res) {
     db.collection('files', function(error, collection) {
       collection.find().toArray(function(error, results) {
         if (error) {
-          console.log("The 'files' collection doesn't exist. Use POST to add RAML files...");
           populateDB();
         }
       });
@@ -33,9 +32,10 @@ exports.index = function(req, res) {
 
 };
 
-/*--------------------------------------------------------------------------------------------------------------------*/
-// Populate database with sample data -- Only used once: the first time the application is started.
-// You'd typically not find this code in a real-life app, since the database would already exist.
+/**
+ * Populate database with sample data --
+ * Only used once: the first time the application is started.
+ */
 var populateDB = function () {
 
   var files = [
