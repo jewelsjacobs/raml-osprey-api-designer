@@ -1,9 +1,14 @@
+require("babel/register");
+
 var express = require('express'),
     files = require('./routes/files'),
     docs = require('./routes/docs'),
-    mock = require('./routes/mock'),
     path = require('path'),
+    _ = require('lodash'),
     fs = require('fs'),
+    async = require('async'),
+    osprey = require('osprey'),
+    parser = require('raml-parser'),
     routes = require('./routes/'),
     morgan  = require('morgan'),
     bodyParser = require('body-parser'),
@@ -14,7 +19,6 @@ var express = require('express'),
 
 var app = module.exports = express();
 
-/* Configure a simple logger and an error handler. */
 app.use(morgan('combined'));
 app.use(methodOverride());
 app.use(bodyParser.json({limit: '5mb'}));
@@ -25,14 +29,12 @@ app.use(errorhandler({
 }));
 
 /**
- * ------
- * ROUTES
- * ------
+ * CORS middleware
+ * @link {http://stackoverflow.com/questions/7067966/how-to-allow-cors-in-express-nodejs}
+ * @param req
+ * @param res
+ * @param next
  */
-
-// ## CORS middleware
-//
-// see: http://stackoverflow.com/questions/7067966/how-to-allow-cors-in-express-nodejs
 var allowCrossDomain = function(req, res, next) {
     res.header('Access-Control-Allow-Origin', '*');
     res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
@@ -41,26 +43,85 @@ var allowCrossDomain = function(req, res, next) {
     // intercept OPTIONS method
     if ('OPTIONS' == req.method) {
         res.send(200);
-    }
-    else {
-        next();
+    } else {
+      next();
     }
 };
 
 app.use(allowCrossDomain);
 
+async.waterfall([
+  /**
+  * Writes the raml included files to the asset directory
+  * and returns api specific informaton from the files
+  * collection like the names of the apis (apiName), the
+  * apiDocPath and the ramlPath
+  * @param callback
+  */
+  function(callback){
+    utils.writeFilesToDir().then(function(response) {
+      callback(null, response)
+    });
+  },
+
+  /**
+  * Create RAML API Proxy and Mock Data With Osprey
+  * @link {https://github.com/mulesoft/osprey}
+  * @param apiObj {Object} object returned from utils.writeFilesToDir()
+  */
+  function(apiObj){
+
+    _.forEach(apiObj, function(api) {
+
+        parser.loadFile(api.ramlPath).then(function (data) {
+          app.use(osprey.createServer(data));
+          /**
+          * RAML API Proxy and Mock Data Routes
+          */
+          //console.log(data.baseUri);
+          //console.log(_.keys(data.baseUriParameters));
+          var junk = function(data){
+            //console.log(data);
+            //if(_.isUndefined(data)){return;};
+            _.forEach(data.resources, function(resource){
+                junk(resource);
+                console.log(resource.relativeUriPathSegments);
+                console.log(resource.relativeUri);
+                console.log(resource.uriParameters);
+              //junk(resource);
+            })
+          }
+          junk(data);
+        });
+
+    })
+  }]
+);
+
+/**
+* ------
+* Routes
+* ------
+*/
+
+/**
+* Api Designer Routes
+*/
 app.get('/files', files.findAll);
 app.get('/files/:id', files.findById);
 app.post('/files', files.addFile);
 app.put('/files/:id', files.updateFile);
 app.delete('/files/:id', files.deleteFile);
 app.get('/files/name/:name', files.findContentByName);
+
+/**
+* Documentation Route
+*/
 app.get('/documentation/:name', docs.get);
-app.get('/mock/:name', mock.get);
+
 
 app.get('/', routes.index);
 
 app.listen(port, function (){
-  utils.writeFilesToDir();
   console.log('Listening on port ' + port);
 });
