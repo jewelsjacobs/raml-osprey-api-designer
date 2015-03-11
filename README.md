@@ -17,6 +17,10 @@ Documentation is generated with [raml2html](https://github.com/kevinrenskers/ram
 ### API Documentation Detail
 ![Doc-Detail](doc-detail.png?raw=true "RAML API Documentation Detail Screen")
 
+## Demo
+- Designer: [http://104.130.18.74:8081/](http://104.130.18.74:8081/)
+- Documentation: [http://104.130.18.74:8081/documentation/jukebox-api](http://104.130.18.74:8081/)
+
 ## Overview
 
 This application provides a simple storage API plus a persistence plugin which enables you to run the [RAML API Designer](https://github.com/mulesoft/api-designer) locally (rather than use the APIHub cloud service) and still be able to manage and collaborate on your design.
