@@ -13,11 +13,13 @@ var express = require('express'),
     morgan  = require('morgan'),
     bodyParser = require('body-parser'),
     methodOverride = require('method-override'),
+    mockService = require('osprey-mock-service'),
     errorhandler = require('errorhandler'),
     utils = require('./routes/utils.js'),
     port = parseInt(process.env.PORT, 10) || 8081;
 
 var app = module.exports = express();
+var mockApp = module.exports = express();
 
 app.use(morgan('combined'));
 app.use(methodOverride());
@@ -74,24 +76,27 @@ async.waterfall([
     _.forEach(apiObj, function(api) {
 
         parser.loadFile(api.ramlPath).then(function (data) {
-          app.use(osprey.createServer(data));
           /**
           * RAML API Proxy and Mock Data Routes
           */
-          //console.log(data.baseUri);
-          //console.log(_.keys(data.baseUriParameters));
-          var junk = function(data){
-            //console.log(data);
-            //if(_.isUndefined(data)){return;};
-            _.forEach(data.resources, function(resource){
-                junk(resource);
-                console.log(resource.relativeUriPathSegments);
-                console.log(resource.relativeUri);
-                console.log(resource.uriParameters);
-              //junk(resource);
-            })
+          if (data.version)
+            data.baseUri = data.baseUri.replace("{version}", ":version");
+
+          if (data.baseUriParameters) {
+            _.forEach(data.baseUriParameters, function (value, key) {
+              data.baseUri = data.baseUri.replace("{" + key + "}", ":" + key);
+            });
           }
-          junk(data);
+
+          var proxyBaseUri = '/' + data.baseUri.split('/').slice(3).join('/');
+          mockApp.get('/', function (req, res) {
+            console.log(mockApp.mountpath);
+          });
+
+          app.use(proxyBaseUri, mockApp);
+          mockApp.use(osprey.createServer(data));
+          mockApp.use(mockService(data));
+
         });
 
     })
