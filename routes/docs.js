@@ -35,7 +35,7 @@ exports.get = function (req, res) {
      */
     function(apiObj){
       _.forEach(apiObj, function(api) {
-        console.log(api);
+
         raml2html.render(api.ramlPath, raml2htmlConfig, function (result) {
           fs.writeFileSync(api.apiDocPath, result);
 
