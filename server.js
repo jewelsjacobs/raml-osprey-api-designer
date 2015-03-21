@@ -19,6 +19,7 @@ var express = require('express'),
     port = parseInt(process.env.PORT, 10) || 8081;
 
 var app = module.exports = express();
+var mockApp = module.exports = express();
 
 app.use(morgan('combined'));
 app.use(methodOverride());
@@ -51,8 +52,6 @@ var allowCrossDomain = function(req, res, next) {
 
 app.use(allowCrossDomain);
 
-var mockApp = module.exports = express();
-
 async.waterfall([
   /**
   * Writes the raml included files to the asset directory
@@ -78,29 +77,25 @@ async.waterfall([
 
         parser.loadFile(api.ramlPath).then(function (data) {
           /**
-          *
-          * @TODO: RAML API Proxy and Mock Data Routes
+          * RAML API Proxy and Mock Data Routes
           */
-          //if (data.version)
-          //  data.baseUri = data.baseUri.replace("{version}", ":version");
-          //
-          //if (data.baseUriParameters) {
-          //  _.forEach(data.baseUriParameters, function (value, key) {
-          //    data.baseUri = data.baseUri.replace("{" + key + "}", ":" + key);
-          //  });
-          //}
-          //
-          //var proxyBaseUri = '/' + data.baseUri.split('/').slice(3).join('/');
-          //mockApp.get('/', function (req, res) {
-          //  console.log(mockApp.mountpath);
-          //});
-          //
-          //app.use(proxyBaseUri, mockApp);
-          //mockApp.use(osprey.createServer(data));
-          //mockApp.use(mockService(data));
+          if (data.version)
+            data.baseUri = data.baseUri.replace("{version}", ":version");
 
-          app.use(osprey.createServer(data));
-          app.use(mockService(data));
+          if (data.baseUriParameters) {
+            _.forEach(data.baseUriParameters, function (value, key) {
+              data.baseUri = data.baseUri.replace("{" + key + "}", ":" + key);
+            });
+          }
+
+          var proxyBaseUri = '/' + data.baseUri.split('/').slice(3).join('/');
+          mockApp.get('/', function (req, res) {
+            console.log(mockApp.mountpath);
+          });
+
+          app.use(proxyBaseUri, mockApp);
+          mockApp.use(osprey.createServer(data));
+          mockApp.use(mockService(data));
 
         });
 
