@@ -59,7 +59,6 @@ exports.findAll = function (req, res) {
             res.header("Access-Control-Allow-Origin", "*");
             res.send(JSON.stringify(fileList));
           } else {
-            console.log(item._id);
             fileList[item._id] = item;
             delete fileList[item._id]._id;
           }

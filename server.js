@@ -75,29 +75,27 @@ async.waterfall([
 
     _.forEach(apiObj, function(api) {
 
-        parser.loadFile(api.ramlPath).then(function (data) {
-          /**
-          * RAML API Proxy and Mock Data Routes
-          */
-          if (data.version)
-            data.baseUri = data.baseUri.replace("{version}", ":version");
+      parser.loadFile(api.ramlPath).then(function (data) {
+        /**
+         * RAML API Proxy and Mock Data Routes
+         */
+        if (data.version)
+          data.baseUri = data.baseUri.replace("{version}", ":version");
 
-          if (data.baseUriParameters) {
-            _.forEach(data.baseUriParameters, function (value, key) {
-              data.baseUri = data.baseUri.replace("{" + key + "}", ":" + key);
-            });
-          }
-
-          var proxyBaseUri = '/' + data.baseUri.split('/').slice(3).join('/');
-          mockApp.get('/', function (req, res) {
-            console.log(mockApp.mountpath);
+        if (data.baseUriParameters) {
+          _.forEach(data.baseUriParameters, function (value, key) {
+            data.baseUri = data.baseUri.replace("{" + key + "}", ":" + key);
           });
+        }
 
-          app.use(proxyBaseUri, mockApp);
-          mockApp.use(osprey.createServer(data));
-          mockApp.use(mockService(data));
+        var proxyBaseUri = '/' + data.baseUri.split('/').slice(3).join('/');
 
-        });
+        mockApp.use(osprey.createServer(data));
+        mockApp.use(mockService(data));
+
+        app.use(proxyBaseUri, mockApp);
+
+      });
 
     })
   }]

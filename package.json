@@ -14,8 +14,8 @@
     "method-override": "^2.3.1",
     "mongodb": "1.x",
     "morgan": "^1.5.1",
-    "osprey": "git://github.com/mulesoft/osprey",
-    "osprey-mock-service": "git://github.com/jewelsjacobs/osprey-mock-service",
+    "osprey": "^0.2.0-alpha",
+    "osprey-mock-service": "0.0.2",
     "raml-parser": "^0.8.10",
     "raml2html": "^1.4.0",
     "server-address": "0.0.2"
