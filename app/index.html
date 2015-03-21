@@ -288,6 +288,7 @@
                 withCredentials: false
               }).success(function (data) {
                 files[path] = data._id;
+                $rootScope.loading = false;
                 deferred.resolve();
               })
                 .error(deferred.reject.bind(deferred));
@@ -316,6 +317,7 @@
               withCredentials: false
             }).success(function (data) {
               files[path] = data._id;
+              $rootScope.loading = false;
               deferred.resolve();
             })
               .error(deferred.reject.bind(deferred));
@@ -362,6 +364,7 @@
               withCredentials: false
             }).success(function () {
               delete files[path];
+              $rootScope.loading = false;
               deferred.resolve();
             })
               .error(deferred.reject.bind(deferred));
@@ -385,6 +388,7 @@
             }).then(function () {
               // on supprime l'ancien fichier
               return service.remove(source);
+              $rootScope.loading = false;
             }, function(reason) {
               console.log('Failed: ' + reason);
             });

@@ -16,9 +16,9 @@ exports.findById = function (req, res) {
     if (req.params.id != 'undefined') {
       db.collection('files', function (err, collection) {
         collection.findOne({'_id': new BSON.ObjectID(req.params.id)}, function (err, item) {
-            delete item._id;
-            res.header("Access-Control-Allow-Origin", "*");
-            res.send(item);
+          delete item._id;
+          res.header("Access-Control-Allow-Origin", "*");
+          res.send(item);
         });
       });
     }
@@ -59,6 +59,7 @@ exports.findAll = function (req, res) {
             res.header("Access-Control-Allow-Origin", "*");
             res.send(JSON.stringify(fileList));
           } else {
+            console.log(item._id);
             fileList[item._id] = item;
             delete fileList[item._id]._id;
           }
@@ -116,18 +117,12 @@ exports.deleteFile = function (req, res) {
   mongoDbConnection(function (db) {
     db.collection('files', function (err, collection) {
       collection.findOne({'_id': new BSON.ObjectID(req.params.id)}, function (err, item) {
-        fs.unlinkSync(utils.paths.assets + file.name);
+        fs.unlinkSync(utils.paths.assets + item.name);
       });
-      collection.remove(
-        {'_id': new BSON.ObjectID(req.params.id)},
-        {safe: true},
-        function (err, result) {
+      collection.remove({'_id': new BSON.ObjectID(req.params.id)}, {safe: true}, function (err, result) {
           (err) ? res.send({'error': err}) : res.send(req.body);
         }
       );
     });
   });
 };
-
-
-
