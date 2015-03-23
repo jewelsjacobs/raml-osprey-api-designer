@@ -15,7 +15,7 @@
     "mongodb": "1.x",
     "morgan": "^1.5.1",
     "osprey": "^0.2.0-alpha",
-    "osprey-mock-service": "0.0.2",
+    "osprey-mock-service": "0.0.3",
     "raml-parser": "^0.8.10",
     "raml2html": "^1.4.0",
     "server-address": "0.0.2"
