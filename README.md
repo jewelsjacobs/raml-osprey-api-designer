@@ -85,9 +85,18 @@ grunt
 
 # Server info
 
-It runs as a [forever-service](https://github.com/zapty/forever-service) called `raml`.
+It runs as a [forever-service](https://github.com/zapty/forever-service) with [nodemon](https://github.com/remy/nodemon) called `raml`.
 
-Commands to interact with service mock-data:
+Here's the command to install the service:
+
+```bash
+npm install forever-service -g
+npm install nodemon -g
+cd /pathtoapp
+forever-service install raml --script server.js -f " -c nodemon" -o " --delay 10 --watch dist/assets -e json,raml --exitcrash" -e "PATH=/usr/local/bin:$PATH"
+```
+
+Commands to interact with service `raml`:
 
 ```
 Start   - `sudo service raml start`
