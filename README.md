@@ -19,7 +19,7 @@ Documentation is generated with [raml2html](https://github.com/kevinrenskers/ram
 
 ## Demo
 - Designer: [http://104.130.18.74:8081/](http://104.130.18.74:8081/)
-- Documentation: [http://104.130.18.74:8081/documentation/jukebox-api](http://104.130.18.74:8081/)
+- Documentation: [http://104.130.18.74:8081/documentation/jukebox-api](http://104.130.18.74:8081/documentation/jukebox-api)
 
 ## Overview
 
