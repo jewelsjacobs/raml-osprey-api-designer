@@ -27,10 +27,7 @@ module.exports = function(config) {
       'bower_components/raml-grammar/dist/suggest.js',
       'bower_components/raml-object-to-raml/dist/raml-object-to-raml.js',
       'bower_components/swagger-to-raml-object/dist/swagger-to-raml-object.js',
-      'bower_components/jszip/jszip.js',
-      'bower_components/jszip/jszip-load.js',
-      'bower_components/jszip/jszip-deflate.js',
-      'bower_components/jszip/jszip-inflate.js',
+      'bower_components/jszip/dist/jszip.js',
 
       'bower_components/marked/lib/marked.js',
       'bower_components/highlightjs/highlight.pack.js',

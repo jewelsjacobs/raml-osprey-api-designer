@@ -7,22 +7,36 @@
   },
   "license": "CPAL 1.0",
   "dependencies": {
-    "angular": "~1.2.16",
-    "angular-bootstrap": "~0.11.0",
-    "angular-ui-tree": "2.1.5",
+    "angular": "~1.4.0",
+    "angular-bootstrap": "~0.13.0",
+    "angular-ui-tree": "~2.5.0",
     "api-console": "mulesoft/api-console#d604d5ff9564b4667616ae30e5affeb5d5f0c5e6",
-    "es5-shim": "~2.3.0",
-    "file-saver.js": "~1.20150304.1",
-    "font-awesome": "~4.0.3",
-    "jszip": "~2.0.0",
+    "es5-shim": "~4.1.6",
+    "file-saver.js": "~1.20150507.2",
+    "font-awesome": "~4.3.0",
+    "jszip": "~2.5.0",
     "raml-grammar": "mulesoft/raml-grammar#cfc1e2bf2d0f7796848294dde61e821a52204a3d",
     "raml-js-parser": "raml-org/raml-js-parser#e1513e34388d6bb6558f5cb5b221c19f90e225e5",
     "raml-object-to-raml": "mulesoft/raml-object-to-raml#33ff487f7a3ec27c82e109e09f89017eb9fa3cd1",
     "swagger-to-raml-object": "mulesoft/swagger-to-raml-object#2bf8c248c1fe5c8ee9e5cc347cbd2dada65e20ce",
-    "angular-spinner": "~0.6.1"
+    "angular-spinner": "~0.6.1",
+    "angular-mocks": "~1.4.0",
+    "sinonjs": "~1.14.1"
   },
   "devDependencies": {
     "angular-mocks": "~1.2.16",
     "sinonjs": "~1.7.1"
+  },
+  "resolutions": {
+    "angular": "~1.4.0",
+    "angular-bootstrap": "~0.13.0",
+    "angular-ui-tree": "~2.5.0",
+    "raml-js-parser": "e1513e34388d6bb6558f5cb5b221c19f90e225e5",
+    "jszip": "~2.5.0",
+    "es5-shim": "~4.1.6",
+    "font-awesome": "~4.3.0",
+    "angular-mocks": "~1.4.0",
+    "sinonjs": "~1.14.1",
+    "file-saver.js": "~1.20150507.2"
   }
 }

@@ -9078,13 +9078,30 @@ if (!CodeMirror.mimeModes.hasOwnProperty('text/html'))
     'autoFocus',
     'rightClick',
     'dragAndDrop'
-  ]).run([
-    '$window',
-    function ($window) {
-      // Adding proxy settings for api console
-      $window.RAML.Settings.proxy = '/proxy/';
+  ]).config([
+    '$provide',
+    function ($provide) {
+      return $provide.decorator('$rootScope', [
+        '$delegate',
+        function ($delegate) {
+          $delegate.safeApply = function (fn) {
+            var phase = $delegate.$$phase;
+            if (phase === '$apply' || phase === '$digest') {
+              if (fn && typeof fn === 'function') {
+                fn();
+              }
+            } else {
+              $delegate.$apply(fn);
+            }
+          };
+          return $delegate;
+        }
+      ]);
     }
-  ]);
+  ]).run(function ($window) {
+    // Adding proxy settings for api console
+    $window.RAML.Settings.proxy = '/proxy/';
+  });
   ;
 }());
 (function () {
@@ -13492,7 +13509,7 @@ if (!CodeMirror.mimeModes.hasOwnProperty('text/html'))
       return function (scope, element, attrs) {
         var fn = $parse(attrs.ngRightClick);
         element.on('contextmenu', function (e) {
-          scope.$apply(function () {
+          scope.$safeApply(function () {
             e.preventDefault();
             fn(scope, { $event: e });
           });
@@ -13529,7 +13546,7 @@ if (!CodeMirror.mimeModes.hasOwnProperty('text/html'))
           if (entered !== 1) {
             return;
           }
-          scope.$apply(function () {
+          scope.$safeApply(function () {
             e.preventDefault();
             fn(scope, { $event: e });
           });
@@ -13550,7 +13567,7 @@ if (!CodeMirror.mimeModes.hasOwnProperty('text/html'))
           if (entered !== 0) {
             return;
           }
-          scope.$apply(function () {
+          scope.$safeApply(function () {
             e.preventDefault();
             fn(scope, { $event: e });
           });
@@ -13566,7 +13583,7 @@ if (!CodeMirror.mimeModes.hasOwnProperty('text/html'))
           e.preventDefault();
         });
         element.on('drop', function (e) {
-          scope.$apply(function () {
+          scope.$safeApply(function () {
             e.preventDefault();
             e.stopPropagation();
             fn(scope, { $event: e });
@@ -13680,7 +13697,7 @@ if (!CodeMirror.mimeModes.hasOwnProperty('text/html'))
           }
           function close() {
             scroll.enable();
-            scope.$apply(function () {
+            scope.$safeApply(function () {
               delete contextMenuController.target;
               scope.opened = false;
               $window.removeEventListener('click', close);
@@ -13850,7 +13867,7 @@ if (!CodeMirror.mimeModes.hasOwnProperty('text/html'))
         function saveListener(e) {
           if (e.which === 83 && (e.metaKey || e.ctrlKey) && !(e.shiftKey || e.altKey)) {
             e.preventDefault();
-            $scope.$apply(function () {
+            $scope.$safeApply(function () {
               fileBrowser.saveFile(fileBrowser.selectedFile);
             });
           }
@@ -13996,7 +14013,7 @@ if (!CodeMirror.mimeModes.hasOwnProperty('text/html'))
           scope.openContextMenu = function () {
             $timeout(function () {
               $window.addEventListener('click', function self() {
-                scope.$apply(function () {
+                scope.$safeApply(function () {
                   scope.contextMenuOpen = false;
                 });
                 $window.removeEventListener('click', self);
@@ -14244,7 +14261,7 @@ if (!CodeMirror.mimeModes.hasOwnProperty('text/html'))
             if (!dragStarted) {
               if (!dragDelaying) {
                 dragStarted = true;
-                scope.$apply(function () {
+                scope.$safeApply(function () {
                   scope.$callbacks.dragStart(dragInfo.eventArgs(elements, pos));
                 });
               }
@@ -14391,7 +14408,7 @@ if (!CodeMirror.mimeModes.hasOwnProperty('text/html'))
                   }
                 }
               }
-              scope.$apply(function () {
+              scope.$safeApply(function () {
                 scope.$callbacks.dragMove(dragInfo.eventArgs(elements, pos));
               });
             }
@@ -14399,27 +14416,27 @@ if (!CodeMirror.mimeModes.hasOwnProperty('text/html'))
           var dragEnd = function (e) {
             e.preventDefault();
             if (dragElm) {
-              scope.$treeScope.$apply(function () {
+              scope.$treeScope.$safeApply(function () {
                 scope.$callbacks.beforeDrop(dragInfo.eventArgs(elements, pos));
               });
               // roll back elements changed
               hiddenPlaceElm.replaceWith(scope.$element);
               dragElm.remove();
               dragElm = null;
-              if (scope.$$apply) {
+              if (scope.$$safeApply) {
                 dragInfo.apply();
-                scope.$treeScope.$apply(function () {
+                scope.$treeScope.$safeApply(function () {
                   scope.$callbacks.dropped(dragInfo.eventArgs(elements, pos));
                 });
               } else {
                 bindDrag();
               }
-              scope.$treeScope.$apply(function () {
+              scope.$treeScope.$safeApply(function () {
                 var eventArgs = dragInfo.eventArgs(elements, pos);
                 eventArgs.canceled = dragCanceled;
                 scope.$callbacks.dragStop(eventArgs);
               });
-              scope.$$apply = false;
+              scope.$$safeApply = false;
               dragInfo = null;
             }
             angular.element($document).unbind('touchend', dragEndEvent);
@@ -14460,11 +14477,11 @@ if (!CodeMirror.mimeModes.hasOwnProperty('text/html'))
             dragMove(e);
           };
           var dragEndEvent = function (e) {
-            scope.$$apply = dropAccpeted;
+            scope.$$safeApply = dropAccpeted;
             dragEnd(e);
           };
           var dragCancelEvent = function (e) {
-            scope.$$apply = false;
+            scope.$$safeApply = false;
             dragCanceled = true;
             dragEnd(e);
           };
@@ -14515,7 +14532,7 @@ if (!CodeMirror.mimeModes.hasOwnProperty('text/html'))
           // uiTreeNodes Scope of parent nodes.
           $scope.$treeScope = null;
           // uiTree scope
-          $scope.$$apply = false;
+          $scope.$$safeApply = false;
           $scope.$type = 'uiTreeDummyNode';
           $scope.init = function (controllersArr) {
             var treeNodesCtrl = controllersArr[0];
