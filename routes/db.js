@@ -1,8 +1,9 @@
 var Db = require('mongodb').Db;
-var Connection = require('mongodb').Connection;
 var Server = require('mongodb').Server;
 //the MongoDB connection
 var connectionInstance;
+
+var DEFAULT_PORT = 27017;
 
 /**
  * Use MongoDB connection as a singleton
@@ -20,7 +21,7 @@ module.exports = function(callback) {
     'ramldb',
     new Server(
       "localhost",
-      Connection.DEFAULT_PORT,
+      DEFAULT_PORT,
       { auto_reconnect: true, safe:false }
     )
   );

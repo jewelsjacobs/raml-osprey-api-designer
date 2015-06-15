@@ -5,6 +5,7 @@ var express = require('express'),
     docs = require('./routes/docs'),
     path = require('path'),
     _ = require('lodash'),
+    favicon = require('serve-favicon'),
     fs = require('fs'),
     async = require('async'),
     osprey = require('osprey'),
@@ -19,6 +20,7 @@ var express = require('express'),
     port = parseInt(process.env.PORT, 10) || 8081;
 
 var app = module.exports = express();
+app.use(favicon(__dirname + '/favicon.ico'));
 var mockApp = module.exports = express();
 
 app.use(morgan('combined'));

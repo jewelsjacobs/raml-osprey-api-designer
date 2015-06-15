@@ -1,7 +1,7 @@
 var mongo = require('mongodb'),
   fs = require('fs'),
   path = require('path'),
-  BSON = mongo.BSONPure,
+  ObjectID = mongo.ObjectID,
   utils = require('./utils'),
   _ = require('lodash'),
   mongoDbConnection = require('./db.js');
@@ -14,8 +14,9 @@ var mongo = require('mongodb'),
 exports.findById = function (req, res) {
   mongoDbConnection(function (db) {
     if (req.params.id != 'undefined') {
+      console.log(req.params.id);
       db.collection('files', function (err, collection) {
-        collection.findOne({'_id': new BSON.ObjectID(req.params.id)}, function (err, item) {
+        collection.findOne({'_id': new ObjectID(req.params.id)}, function (err, item) {
           delete item._id;
           res.header("Access-Control-Allow-Origin", "*");
           res.send(item);
@@ -94,7 +95,7 @@ exports.addFile = function (req, res) {
 exports.updateFile = function (req, res) {
   mongoDbConnection(function (db) {
     db.collection('files', function (err, collection) {
-      collection.update({'_id': new BSON.ObjectID(req.params.id)}, req.body, {safe: true}, function (err, result) {
+      collection.update({'_id': new ObjectID(req.params.id)}, req.body, {safe: true}, function (err, result) {
         fs.writeFileSync(utils.paths.assets + req.body.name, decodeURIComponent(req.body.content));
         res.header("Access-Control-Allow-Origin", "*");
         res.send(
@@ -115,10 +116,10 @@ exports.updateFile = function (req, res) {
 exports.deleteFile = function (req, res) {
   mongoDbConnection(function (db) {
     db.collection('files', function (err, collection) {
-      collection.findOne({'_id': new BSON.ObjectID(req.params.id)}, function (err, item) {
+      collection.findOne({'_id': new ObjectID(req.params.id)}, function (err, item) {
         fs.unlinkSync(utils.paths.assets + item.name);
       });
-      collection.remove({'_id': new BSON.ObjectID(req.params.id)}, {safe: true}, function (err, result) {
+      collection.remove({'_id': new ObjectID(req.params.id)}, {safe: true}, function (err, result) {
           (err) ? res.send({'error': err}) : res.send(req.body);
         }
       );
