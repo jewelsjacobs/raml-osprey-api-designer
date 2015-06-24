@@ -16,7 +16,7 @@ var express = require('express'),
     mockService = require('osprey-mock-service'),
     errorhandler = require('errorhandler'),
     utils = require('./routes/utils.js'),
-    port = parseInt(process.env.PORT, 10) || 8081;
+    port = parseInt(process.env.PORT, 10) || 3000;
 
 var app = module.exports = express();
 var mockApp = module.exports = express();
@@ -89,7 +89,7 @@ async.waterfall([
         }
 
         var proxyBaseUri = '/' + data.baseUri.split('/').slice(3).join('/');
-
+        console.log(proxyBaseUri);
         mockApp.use(osprey.createServer(data));
         mockApp.use(mockService(data));
 

@@ -19,8 +19,6 @@ module.exports = function(config) {
       'bower_components/angular/angular.js',
       'bower_components/angular-bootstrap/ui-bootstrap-tpls.js',
       'bower_components/angular-ui-tree/dist/angular-ui-tree.js',
-      'bower_components/spin.js/spin.js',
-      'bower_components/angular-spinner/angular-spinner.js',
       'bower_components/es5-shim/es5-shim.js',
 
       'bower_components/raml-js-parser/dist/raml-parser.js',

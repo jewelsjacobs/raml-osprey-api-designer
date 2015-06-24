@@ -14,12 +14,13 @@
     "method-override": "^2.3.1",
     "mongodb": "1.x",
     "morgan": "^1.5.1",
-    "osprey": "^0.2.0-alpha",
+    "osprey": "^0.2.0-beta.1",
     "osprey-mock-service": "0.0.3",
     "raml-parser": "^0.8.10",
     "raml2html": "^1.4.0",
     "server-address": "0.0.2"
   },
+  "license": "CPAL 1.0",
   "devDependencies": {
     "chai": "~1.10.0",
     "connect-livereload": "~0.3.2",

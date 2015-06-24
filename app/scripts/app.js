@@ -6,7 +6,6 @@
     'ui.bootstrap.modal',
     'ui.bootstrap.tpls',
     'ui.tree',
-    'angularSpinner',
 
     // console
     'ramlConsoleApp',

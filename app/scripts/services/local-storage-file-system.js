@@ -41,7 +41,7 @@
         }
       };
     })
-    .factory('localStorageFileSystem', function ($q, $timeout, localStorageHelper, FOLDER) {
+    .factory('localStorageFileSystem', function ($window, $q, $prompt, $timeout, localStorageHelper, FOLDER) {
       function fileNotFoundMessage(path) {
         return 'file with path="' + path + '" does not exist';
       }
@@ -109,8 +109,7 @@
       function hasChildrens(path) {
         var has = false;
         localStorageHelper.forEach(function (entry) {
-          if (entry.path.toLowerCase() !== path.toLowerCase() &&
-              entry.path.indexOf(path) === 0) {
+          if (entry.path.indexOf(path + '/') === 0) {
             has = true;
           }
         });
@@ -359,6 +358,27 @@
         }, delay);
 
         return deferred.promise;
+      };
+
+      service.exportFiles = function exportFiles() {
+        var jszip = new $window.JSZip();
+        localStorageHelper.forEach(function (item) {
+          // Skip root folder
+          if (item.path === '/') {
+            return;
+          }
+
+          // Skip meta files
+          if (item.name.slice(-5) === '.meta') {
+            return;
+          }
+
+          var path = item.path.slice(1); // Remove starting slash
+          item.type === 'folder' ? jszip.folder(path) : jszip.file(path, item.content);
+        });
+
+        var fileName = $prompt('Please enter a ZIP file name:', 'api.zip');
+        fileName && $window.saveAs(jszip.generate({type: 'blob'}), fileName);
       };
 
       return service;
