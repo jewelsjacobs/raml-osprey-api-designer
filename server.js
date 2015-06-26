@@ -91,7 +91,7 @@ async.waterfall([
         var proxyBaseUri = '/' + data.baseUri.split('/').slice(3).join('/');
 
         mockApp.use(osprey.createServer(data));
-        mockApp.use(mockService(data));
+        mockApp.use(mockService.createServer(data));
 
         app.use(proxyBaseUri, mockApp);
 
